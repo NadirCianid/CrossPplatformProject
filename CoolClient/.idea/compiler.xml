@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="CoolClient" target="17" />
+      <module name="CoolClient" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

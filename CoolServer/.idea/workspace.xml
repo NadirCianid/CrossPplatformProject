@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="691e6611-8b0b-46bd-aeb1-5dae686170e4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../CoolClient/.idea/libraries/Maven__com_google_android_annotations_4_1_1_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CoolClient/.idea/libraries/Maven__com_google_api_grpc_proto_google_common_protos_1_12_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CoolClient/.idea/libraries/Maven__com_google_code_findbugs_jsr305_3_0_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CoolClient/.idea/libraries/Maven__com_google_code_gson_gson_2_7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CoolClient/.idea/libraries/Maven__com_google_errorprone_error_prone_annotations_2_3_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CoolClient/.idea/libraries/Maven__com_google_guava_guava_26_0_android.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CoolClient/.idea/libraries/Maven__com_google_j2objc_j2objc_annotations_1_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CoolClient/.idea/libraries/Maven__com_google_protobuf_protobuf_java_3_9_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CoolClient/.idea/libraries/Maven__io_grpc_grpc_api_1_24_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CoolClient/.idea/libraries/Maven__io_grpc_grpc_context_1_24_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CoolClient/.idea/libraries/Maven__io_grpc_grpc_core_1_24_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CoolClient/.idea/libraries/Maven__io_grpc_grpc_netty_shaded_1_24_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CoolClient/.idea/libraries/Maven__io_grpc_grpc_protobuf_1_24_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CoolClient/.idea/libraries/Maven__io_grpc_grpc_protobuf_lite_1_24_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CoolClient/.idea/libraries/Maven__io_grpc_grpc_stub_1_24_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CoolClient/.idea/libraries/Maven__io_opencensus_opencensus_api_0_21_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CoolClient/.idea/libraries/Maven__io_opencensus_opencensus_contrib_grpc_metrics_0_21_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CoolClient/.idea/libraries/Maven__io_perfmark_perfmark_api_0_17_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CoolClient/.idea/libraries/Maven__javax_annotation_javax_annotation_api_1_3_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CoolClient/.idea/libraries/Maven__junit_junit_4_11.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CoolClient/.idea/libraries/Maven__org_checkerframework_checker_compat_qual_2_5_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CoolClient/.idea/libraries/Maven__org_codehaus_mojo_animal_sniffer_annotations_1_17.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CoolClient/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CoolClient/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CoolClient/src/main/proto/TestService.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/staff/Calculations.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/staff/ServerApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/proto/TestService.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/AppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CoolClient/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../CoolClient/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CoolClient/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CoolClient/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CoolClient/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CoolClient/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CoolClient/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CoolClient/.idea/libraries/Maven__org_openjfx_javafx_base_17_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CoolClient/.idea/libraries/Maven__org_openjfx_javafx_base_win_17_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CoolClient/.idea/libraries/Maven__org_openjfx_javafx_controls_17_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CoolClient/.idea/libraries/Maven__org_openjfx_javafx_controls_win_17_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CoolClient/.idea/libraries/Maven__org_openjfx_javafx_fxml_17_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CoolClient/.idea/libraries/Maven__org_openjfx_javafx_fxml_win_17_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CoolClient/.idea/libraries/Maven__org_openjfx_javafx_graphics_17_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CoolClient/.idea/libraries/Maven__org_openjfx_javafx_graphics_win_17_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CoolClient/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CoolClient/CoolClient.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../CoolClient/CoolClient.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CoolClient/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../CoolClient/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CoolClient/src/main/java/com/client/coolclient/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CoolClient/src/main/java/staff/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CoolClient/src/main/java/com/client/coolclient/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CoolClient/src/main/java/staff/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CoolClient/src/main/java/module-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CoolClient/src/main/resources/com/client/coolclient/test-scene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../CoolClient/src/main/resources/test.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CoolClient/target/classes/com/client/coolclient/HelloApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CoolClient/target/classes/com/client/coolclient/HelloController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CoolClient/target/classes/com/client/coolclient/test-scene.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CoolClient/target/classes/module-info.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build-spring-boot.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom-spring-boot.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/components/Layout.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/pages/About.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/pages/Error404.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/pages/Index.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/pages/Login.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/AppModule.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/DevelopmentModule.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/QaModule.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/spring/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/spring/AppConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/modules/components/Layout.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j2.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/components/Layout.tml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/pages/About.tml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/pages/Error404.tml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/pages/Index.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/pages/Index.tml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/pages/Login.tml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/app.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/images/apache-tapestry.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/tapestry/RunWithJetty.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/tapestry/integration/pages/LoginTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/tapestry/integration/pages/NavigationTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/tapestry/unit/pages/IndexTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/unit/ClassTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/PLACEHOLDER" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2WOfWfBVhqbL76AAxRsfxWVNoZg" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Denis\Quasidisk D\Politech\Hlopin\RPC_Project\MainProject\CrossPlatformProject\CoolServer\src\main" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="ServerApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.staff.ServerApp" />
+      <module name="CoolServer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.staff.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ServerApp" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="691e6611-8b0b-46bd-aeb1-5dae686170e4" name="Changes" comment="" />
+      <created>1696608581368</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1696608581368</updated>
+      <workItem from="1696608583253" duration="8411000" />
+      <workItem from="1696699597890" duration="18000" />
+      <workItem from="1696700836083" duration="871000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
