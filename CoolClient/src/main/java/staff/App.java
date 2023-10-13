@@ -15,6 +15,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+        //Подготовка ссылки на файл первой сцены приложения
         URL url = new File("src/main/resources/test.fxml").toURI().toURL();
         FXMLLoader fxmlLoader = new FXMLLoader(url);
         Parent root = fxmlLoader.load();
@@ -24,6 +25,7 @@ public class App extends Application {
         stage.show();
         stage.setResizable(false);
 
+        //Запуск инициализации контроллера
         ((TestController) fxmlLoader.getController()).chartInit();
     }
 

@@ -31,18 +31,23 @@ public class TestController extends TestServiceGrpc.TestServiceImplBase {
 
     @FXML
     private StackedAreaChart<Integer, Double> chart;
+
+    //Хранилище точек графика
     private XYChart.Series<Integer, Double> series = new XYChart.Series();
 
     public void chartInit() {
+        //Инициализация графика
         chart.getData().add(series);
         series.setName("Some values");
     }
 
     @FXML
     void showChart(ActionEvent event) {
-        ManagedChannel channel = ManagedChannelBuilder.forTarget("localhost:8082")
+        //Создание объекта канала, по которому будет происходить общение с сервером
+        ManagedChannel channel = ManagedChannelBuilder.forTarget("localhost:8082") //адрес сервера
                 .usePlaintext().build();
 
+        //Создание объекта, через который будут вызываться методы сервера
         TestServiceGrpc.TestServiceBlockingStub stub = TestServiceGrpc.newBlockingStub(channel);
 
 
@@ -53,19 +58,19 @@ public class TestController extends TestServiceGrpc.TestServiceImplBase {
         double b;
 
         try {
+            //Считывание параметров функции
             a1 = Double.parseDouble(a1TextField.getText());
             a2 = Double.parseDouble(a2TextField.getText());
             a3 = Double.parseDouble(a3TextField.getText());
             a4 = Double.parseDouble(a4TextField.getText());
             b = bSlider.getValue();
 
-
-
-
+            //Очистка графика
             series.getData().clear();
 
 
             for(int i = 0; i <= 10; i++) {
+                //Создание объекта Params для передачи установленных параметров на сервер
                 TestServiceOuterClass.Params params = TestServiceOuterClass.Params
                         .newBuilder()
                         .setA1(a1)
@@ -75,8 +80,11 @@ public class TestController extends TestServiceGrpc.TestServiceImplBase {
                         .setB(b)
                         .setX(i)
                         .build();
+
+                //Получение ответа точки графика по установленным параметрам
                 TestServiceOuterClass.Point point = stub.testFunc(params);
 
+                //Добавление полученной точки на график
                 series.getData().add(new XYChart.Data<>(i, point.getY()));
             }
 
