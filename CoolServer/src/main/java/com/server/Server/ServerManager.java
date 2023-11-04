@@ -18,7 +18,7 @@ public class ServerManager {
     public void startServer() throws IOException, InterruptedException {
         server.start();
 
-        System.out.println("server started");
+        System.out.println("Server started");
 
         server.awaitTermination();
     }

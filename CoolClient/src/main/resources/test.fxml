@@ -12,11 +12,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="staff.TestController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controlers.TestController">
     <children>
-        <StackedAreaChart fx:id="chart" layoutX="314.0" layoutY="14.0" prefHeight="280.0" prefWidth="392.0" title="Some chart">
+        <StackedAreaChart fx:id="chart" alternativeColumnFillVisible="true" layoutX="314.0" layoutY="14.0" legendVisible="false" prefHeight="289.0" prefWidth="403.0" title="Полученные результаты">
             <xAxis>
-                <NumberAxis autoRanging="false" side="BOTTOM" tickLabelGap="1.0" upperBound="10.0" />
+                <NumberAxis fx:id="numberAxesX" autoRanging="false" side="BOTTOM" tickLabelGap="1.0" upperBound="10.0" />
             </xAxis>
             <yAxis>
                 <NumberAxis side="LEFT" />
@@ -24,7 +24,7 @@
         </StackedAreaChart>
         <VBox alignment="TOP_CENTER" layoutX="31.0" layoutY="35.0" prefHeight="417.0" prefWidth="263.0" spacing="10.0">
             <children>
-                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="64.0" prefWidth="254.0" text=" Тестовая версия интерфейса">
+                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="64.0" prefWidth="254.0" text="Введите данные:">
                     <font>
                         <Font size="18.0" />
                     </font>
@@ -32,49 +32,42 @@
                 <Separator prefHeight="16.0" prefWidth="263.0" />
                 <ToolBar prefHeight="40.0" prefWidth="196.0">
                     <items>
-                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="65.0" text="a1" />
-                        <TextField fx:id="a1TextField" />
+                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="65.0" text="Start time" />
+                        <TextField fx:id="startTimeTextField" />
                     </items>
                 </ToolBar>
                 <ToolBar prefHeight="40.0" prefWidth="196.0">
                     <items>
-                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="65.0" text="a2" />
-                        <TextField fx:id="a2TextField" />
+                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="65.0" text="End time" />
+                        <TextField fx:id="endTimeTextField" />
                     </items>
                 </ToolBar>
                 <ToolBar prefHeight="40.0" prefWidth="196.0">
                     <items>
-                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="65.0" text="a3" />
-                        <TextField fx:id="a3TextField" />
+                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="65.0" text="Step" />
+                        <TextField fx:id="stepTextField" />
                     </items>
                 </ToolBar>
-                <ToolBar prefHeight="40.0" prefWidth="196.0">
-                    <items>
-                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="65.0" text="a4" />
-                        <TextField fx:id="a4TextField" />
-                    </items>
-                </ToolBar>
-                <Separator prefHeight="16.0" prefWidth="263.0" />
                 <ToolBar prefHeight="40.0" prefWidth="190.0">
                     <items>
-                        <Label prefHeight="17.0" prefWidth="244.0" text="f(x) = a1*x/a4 + a2*x^2+ a3*x^3  + b">
+                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="244.0" text="f(x) = cos(x)">
                             <font>
-                                <Font size="14.0" />
+                                <Font size="17.0" />
                             </font>
                         </Label>
                     </items>
                 </ToolBar>
             </children>
         </VBox>
-        <Button layoutX="314.0" layoutY="334.0" mnemonicParsing="false" onAction="#showChart" prefHeight="118.0" prefWidth="392.0" text="Построить график">
+        <Button fx:id="startButton" layoutX="404.0" layoutY="360.0" mnemonicParsing="false" onAction="#sendRequest" prefHeight="64.0" prefWidth="212.0" text="Старт">
             <font>
-                <Font size="10.0" />
+                <Font size="36.0" />
             </font>
         </Button>
-        <Slider fx:id="bSlider" layoutX="360.0" layoutY="294.0" majorTickUnit="10.0" minorTickCount="0" prefWidth="300.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
-        <Label alignment="CENTER" layoutX="336.0" layoutY="291.0" text="b">
+        <Slider fx:id="timeSlider" layoutX="373.0" layoutY="283.0" majorTickUnit="10.0" max="0.0" minorTickCount="0" prefHeight="58.0" prefWidth="320.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+        <Label alignment="CENTER" layoutX="303.0" layoutY="283.0" prefHeight="40.0" prefWidth="77.0" text="time">
             <font>
-                <Font size="14.0" />
+                <Font size="18.0" />
             </font>
         </Label>
     </children>

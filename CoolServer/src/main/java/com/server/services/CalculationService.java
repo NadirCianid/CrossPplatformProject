@@ -1,35 +1,44 @@
 package com.server.services;
 
-import com.test.grpc.TestServiceGrpc;
-import com.test.grpc.TestServiceOuterClass;
+import com.test.grpc.CalculatorGrpc;
+
+import com.test.grpc.CalculatorService;
 import io.grpc.stub.StreamObserver;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CalculationService extends TestServiceGrpc.TestServiceImplBase {
+public class CalculationService extends CalculatorGrpc.CalculatorImplBase {
 
-    @Override
-    public void testFunc(TestServiceOuterClass.Params params,
-                         StreamObserver<TestServiceOuterClass.Point> pointObserver) {
-
-        //Установка полученных параметров
-        double a1 = params.getA1();
-        double a2 = params.getA2();
-        double a3 = params.getA3();
-        double a4 = params.getA4();
-        double b = params.getB();
-        double x = params.getX();
+    private final long MILLIS_MULTIPLIER = 1000L;
 
 
-        double y = a1 * x / a4 + a2 * Math.pow(x,2) + a3 * Math.pow(x,3) + b;
+    public void calculate(CalculatorService.Request request, StreamObserver<CalculatorService.Response> responseObserver) {
+        for (double time = request.getStartTime(); compare(time, request.getEndTime()); time += request.getStep()) {
+            CalculatorService.Response response = CalculatorService.Response.
+                    newBuilder().
+                    setTime(time).
+                    setResult(calculate(time)).
+                    build();
 
-        //Создание объекта точки (ордината)
-        TestServiceOuterClass.Point point = TestServiceOuterClass.
-                Point.newBuilder().setY(y).build();
+            responseObserver.onNext(response);
 
-        //Отправка точки
-        pointObserver.onNext(point);
+            System.out.println(response);
 
-        pointObserver.onCompleted();
+            try {
+                Thread.sleep((long) (request.getStep() * MILLIS_MULTIPLIER));
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        responseObserver.onCompleted();
+    }
+
+    private Double calculate(Double parameter) {
+        return Math.cos(parameter); //example
+    }
+
+    private boolean compare(double first, double second) {
+        return Double.compare(first, second) != 1;
     }
 }
