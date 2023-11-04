@@ -1,10 +1,12 @@
-package com.staff;
+package com.server.services;
 
 import com.test.grpc.TestServiceGrpc;
 import com.test.grpc.TestServiceOuterClass;
 import io.grpc.stub.StreamObserver;
+import org.springframework.stereotype.Service;
 
-public class Calculations extends TestServiceGrpc.TestServiceImplBase {
+@Service
+public class CalculationService extends TestServiceGrpc.TestServiceImplBase {
 
     @Override
     public void testFunc(TestServiceOuterClass.Params params,

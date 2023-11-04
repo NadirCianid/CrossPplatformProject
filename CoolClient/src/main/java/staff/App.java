@@ -16,7 +16,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         //Подготовка ссылки на файл первой сцены приложения
-        URL url = new File("src/main/resources/test.fxml").toURI().toURL();
+        URL url = new File("D:\\STUDY\\unic\\Hlopin\\CrossPlatformProject\\CoolClient\\src\\main\\resources\\test.fxml").toURI().toURL();
         FXMLLoader fxmlLoader = new FXMLLoader(url);
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);
