@@ -9,8 +9,13 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ServerConfig {
 
+    private static final int PORT = 8082;
+
     @Bean
     public Server server() {
-        return ServerBuilder.forPort(8082).addService(new CalculationService()).build();
+        return ServerBuilder.
+                forPort(PORT).
+                addService(new CalculationService()).
+                build();
     }
 }

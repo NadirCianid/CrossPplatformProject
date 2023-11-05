@@ -11,7 +11,7 @@ public class CalculationService extends CalculatorGrpc.CalculatorImplBase {
 
     private final long MILLIS_MULTIPLIER = 1000L;
 
-
+    @Override
     public void calculate(CalculatorService.Request request, StreamObserver<CalculatorService.Response> responseObserver) {
         for (double time = request.getStartTime(); compare(time, request.getEndTime()); time += request.getStep()) {
             CalculatorService.Response response = CalculatorService.Response.

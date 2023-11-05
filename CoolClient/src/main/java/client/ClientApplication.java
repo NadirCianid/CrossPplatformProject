@@ -2,6 +2,7 @@ package client;
 
 
 import client.controlers.TestController;
+import client.network.NetworkManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,7 +17,7 @@ public class ClientApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-
+        //TODO : путь относительно проекта
         URL url = new File("D:\\STUDY\\unic\\Hlopin\\CrossPlatformProject\\CoolClient\\src\\main\\resources\\test.fxml").toURI().toURL();
 
         FXMLLoader fxmlLoader = new FXMLLoader(url);
@@ -27,6 +28,8 @@ public class ClientApplication extends Application {
         stage.setScene(scene);
         stage.show();
         stage.setResizable(false);
+
+        stage.setOnCloseRequest(windowEvent -> NetworkManager.shutdownChannel());
 
 
         ((TestController) fxmlLoader.getController()).chartInit();
