@@ -1,1 +1,4 @@
-com\server\dto\Point.class
+com\test\grpc\CalculatorService$ResponseArray.class
+com\test\grpc\CalculatorService$ResponseArray$1.class
+com\test\grpc\CalculatorService$ResponseArray$Builder.class
+com\test\grpc\CalculatorService$ResponseArrayOrBuilder.class

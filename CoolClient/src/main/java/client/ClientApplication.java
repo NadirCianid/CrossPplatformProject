@@ -1,7 +1,5 @@
 package client;
 
-
-import client.controlers.TestController;
 import client.network.NetworkManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -31,8 +29,6 @@ public class ClientApplication extends Application {
 
         stage.setOnCloseRequest(windowEvent -> NetworkManager.shutdownChannel());
 
-
-        ((TestController) fxmlLoader.getController()).chartInit();
     }
 
     public static void main(String[] args) {

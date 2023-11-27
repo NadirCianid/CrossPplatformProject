@@ -28,28 +28,28 @@ public final class CalculatorGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<com.test.grpc.CalculatorService.Request,
-      com.test.grpc.CalculatorService.Response> getCalculateMethod;
+      com.test.grpc.CalculatorService.ResponseArray> getCalculateMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "calculate",
       requestType = com.test.grpc.CalculatorService.Request.class,
-      responseType = com.test.grpc.CalculatorService.Response.class,
+      responseType = com.test.grpc.CalculatorService.ResponseArray.class,
       methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
   public static io.grpc.MethodDescriptor<com.test.grpc.CalculatorService.Request,
-      com.test.grpc.CalculatorService.Response> getCalculateMethod() {
-    io.grpc.MethodDescriptor<com.test.grpc.CalculatorService.Request, com.test.grpc.CalculatorService.Response> getCalculateMethod;
+      com.test.grpc.CalculatorService.ResponseArray> getCalculateMethod() {
+    io.grpc.MethodDescriptor<com.test.grpc.CalculatorService.Request, com.test.grpc.CalculatorService.ResponseArray> getCalculateMethod;
     if ((getCalculateMethod = CalculatorGrpc.getCalculateMethod) == null) {
       synchronized (CalculatorGrpc.class) {
         if ((getCalculateMethod = CalculatorGrpc.getCalculateMethod) == null) {
           CalculatorGrpc.getCalculateMethod = getCalculateMethod =
-              io.grpc.MethodDescriptor.<com.test.grpc.CalculatorService.Request, com.test.grpc.CalculatorService.Response>newBuilder()
+              io.grpc.MethodDescriptor.<com.test.grpc.CalculatorService.Request, com.test.grpc.CalculatorService.ResponseArray>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "calculate"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.test.grpc.CalculatorService.Request.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.test.grpc.CalculatorService.Response.getDefaultInstance()))
+                  com.test.grpc.CalculatorService.ResponseArray.getDefaultInstance()))
               .setSchemaDescriptor(new CalculatorMethodDescriptorSupplier("calculate"))
               .build();
         }
@@ -88,7 +88,7 @@ public final class CalculatorGrpc {
     /**
      */
     public void calculate(com.test.grpc.CalculatorService.Request request,
-        io.grpc.stub.StreamObserver<com.test.grpc.CalculatorService.Response> responseObserver) {
+        io.grpc.stub.StreamObserver<com.test.grpc.CalculatorService.ResponseArray> responseObserver) {
       asyncUnimplementedUnaryCall(getCalculateMethod(), responseObserver);
     }
 
@@ -99,7 +99,7 @@ public final class CalculatorGrpc {
             asyncServerStreamingCall(
               new MethodHandlers<
                 com.test.grpc.CalculatorService.Request,
-                com.test.grpc.CalculatorService.Response>(
+                com.test.grpc.CalculatorService.ResponseArray>(
                   this, METHODID_CALCULATE)))
           .build();
     }
@@ -126,7 +126,7 @@ public final class CalculatorGrpc {
     /**
      */
     public void calculate(com.test.grpc.CalculatorService.Request request,
-        io.grpc.stub.StreamObserver<com.test.grpc.CalculatorService.Response> responseObserver) {
+        io.grpc.stub.StreamObserver<com.test.grpc.CalculatorService.ResponseArray> responseObserver) {
       asyncServerStreamingCall(
           getChannel().newCall(getCalculateMethod(), getCallOptions()), request, responseObserver);
     }
@@ -152,7 +152,7 @@ public final class CalculatorGrpc {
 
     /**
      */
-    public java.util.Iterator<com.test.grpc.CalculatorService.Response> calculate(
+    public java.util.Iterator<com.test.grpc.CalculatorService.ResponseArray> calculate(
         com.test.grpc.CalculatorService.Request request) {
       return blockingServerStreamingCall(
           getChannel(), getCalculateMethod(), getCallOptions(), request);
@@ -199,7 +199,7 @@ public final class CalculatorGrpc {
       switch (methodId) {
         case METHODID_CALCULATE:
           serviceImpl.calculate((com.test.grpc.CalculatorService.Request) request,
-              (io.grpc.stub.StreamObserver<com.test.grpc.CalculatorService.Response>) responseObserver);
+              (io.grpc.stub.StreamObserver<com.test.grpc.CalculatorService.ResponseArray>) responseObserver);
           break;
         default:
           throw new AssertionError();

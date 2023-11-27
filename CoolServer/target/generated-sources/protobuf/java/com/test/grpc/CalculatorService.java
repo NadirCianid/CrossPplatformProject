@@ -19,19 +19,34 @@ public final class CalculatorService {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>double startTime = 1;</code>
+     * <code>int64 startX = 1;</code>
      */
-    double getStartTime();
+    long getStartX();
 
     /**
-     * <code>double endTime = 2;</code>
+     * <code>int64 endX = 2;</code>
      */
-    double getEndTime();
+    long getEndX();
 
     /**
-     * <code>double step = 3;</code>
+     * <code>int64 startY = 3;</code>
      */
-    double getStep();
+    long getStartY();
+
+    /**
+     * <code>int64 endY = 4;</code>
+     */
+    long getEndY();
+
+    /**
+     * <code>int64 startT = 5;</code>
+     */
+    long getStartT();
+
+    /**
+     * <code>int64 endT = 6;</code>
+     */
+    long getEndT();
   }
   /**
    * Protobuf type {@code com.test.grpc.Request}
@@ -78,19 +93,34 @@ public final class CalculatorService {
             case 0:
               done = true;
               break;
-            case 9: {
+            case 8: {
 
-              startTime_ = input.readDouble();
+              startX_ = input.readInt64();
               break;
             }
-            case 17: {
+            case 16: {
 
-              endTime_ = input.readDouble();
+              endX_ = input.readInt64();
               break;
             }
-            case 25: {
+            case 24: {
 
-              step_ = input.readDouble();
+              startY_ = input.readInt64();
+              break;
+            }
+            case 32: {
+
+              endY_ = input.readInt64();
+              break;
+            }
+            case 40: {
+
+              startT_ = input.readInt64();
+              break;
+            }
+            case 48: {
+
+              endT_ = input.readInt64();
               break;
             }
             default: {
@@ -125,31 +155,58 @@ public final class CalculatorService {
               com.test.grpc.CalculatorService.Request.class, com.test.grpc.CalculatorService.Request.Builder.class);
     }
 
-    public static final int STARTTIME_FIELD_NUMBER = 1;
-    private double startTime_;
+    public static final int STARTX_FIELD_NUMBER = 1;
+    private long startX_;
     /**
-     * <code>double startTime = 1;</code>
+     * <code>int64 startX = 1;</code>
      */
-    public double getStartTime() {
-      return startTime_;
+    public long getStartX() {
+      return startX_;
     }
 
-    public static final int ENDTIME_FIELD_NUMBER = 2;
-    private double endTime_;
+    public static final int ENDX_FIELD_NUMBER = 2;
+    private long endX_;
     /**
-     * <code>double endTime = 2;</code>
+     * <code>int64 endX = 2;</code>
      */
-    public double getEndTime() {
-      return endTime_;
+    public long getEndX() {
+      return endX_;
     }
 
-    public static final int STEP_FIELD_NUMBER = 3;
-    private double step_;
+    public static final int STARTY_FIELD_NUMBER = 3;
+    private long startY_;
     /**
-     * <code>double step = 3;</code>
+     * <code>int64 startY = 3;</code>
      */
-    public double getStep() {
-      return step_;
+    public long getStartY() {
+      return startY_;
+    }
+
+    public static final int ENDY_FIELD_NUMBER = 4;
+    private long endY_;
+    /**
+     * <code>int64 endY = 4;</code>
+     */
+    public long getEndY() {
+      return endY_;
+    }
+
+    public static final int STARTT_FIELD_NUMBER = 5;
+    private long startT_;
+    /**
+     * <code>int64 startT = 5;</code>
+     */
+    public long getStartT() {
+      return startT_;
+    }
+
+    public static final int ENDT_FIELD_NUMBER = 6;
+    private long endT_;
+    /**
+     * <code>int64 endT = 6;</code>
+     */
+    public long getEndT() {
+      return endT_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -166,14 +223,23 @@ public final class CalculatorService {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (startTime_ != 0D) {
-        output.writeDouble(1, startTime_);
+      if (startX_ != 0L) {
+        output.writeInt64(1, startX_);
       }
-      if (endTime_ != 0D) {
-        output.writeDouble(2, endTime_);
+      if (endX_ != 0L) {
+        output.writeInt64(2, endX_);
       }
-      if (step_ != 0D) {
-        output.writeDouble(3, step_);
+      if (startY_ != 0L) {
+        output.writeInt64(3, startY_);
+      }
+      if (endY_ != 0L) {
+        output.writeInt64(4, endY_);
+      }
+      if (startT_ != 0L) {
+        output.writeInt64(5, startT_);
+      }
+      if (endT_ != 0L) {
+        output.writeInt64(6, endT_);
       }
       unknownFields.writeTo(output);
     }
@@ -184,17 +250,29 @@ public final class CalculatorService {
       if (size != -1) return size;
 
       size = 0;
-      if (startTime_ != 0D) {
+      if (startX_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(1, startTime_);
+          .computeInt64Size(1, startX_);
       }
-      if (endTime_ != 0D) {
+      if (endX_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(2, endTime_);
+          .computeInt64Size(2, endX_);
       }
-      if (step_ != 0D) {
+      if (startY_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(3, step_);
+          .computeInt64Size(3, startY_);
+      }
+      if (endY_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(4, endY_);
+      }
+      if (startT_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(5, startT_);
+      }
+      if (endT_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(6, endT_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -211,15 +289,18 @@ public final class CalculatorService {
       }
       com.test.grpc.CalculatorService.Request other = (com.test.grpc.CalculatorService.Request) obj;
 
-      if (java.lang.Double.doubleToLongBits(getStartTime())
-          != java.lang.Double.doubleToLongBits(
-              other.getStartTime())) return false;
-      if (java.lang.Double.doubleToLongBits(getEndTime())
-          != java.lang.Double.doubleToLongBits(
-              other.getEndTime())) return false;
-      if (java.lang.Double.doubleToLongBits(getStep())
-          != java.lang.Double.doubleToLongBits(
-              other.getStep())) return false;
+      if (getStartX()
+          != other.getStartX()) return false;
+      if (getEndX()
+          != other.getEndX()) return false;
+      if (getStartY()
+          != other.getStartY()) return false;
+      if (getEndY()
+          != other.getEndY()) return false;
+      if (getStartT()
+          != other.getStartT()) return false;
+      if (getEndT()
+          != other.getEndT()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -231,15 +312,24 @@ public final class CalculatorService {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + STARTTIME_FIELD_NUMBER;
+      hash = (37 * hash) + STARTX_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          java.lang.Double.doubleToLongBits(getStartTime()));
-      hash = (37 * hash) + ENDTIME_FIELD_NUMBER;
+          getStartX());
+      hash = (37 * hash) + ENDX_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          java.lang.Double.doubleToLongBits(getEndTime()));
-      hash = (37 * hash) + STEP_FIELD_NUMBER;
+          getEndX());
+      hash = (37 * hash) + STARTY_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          java.lang.Double.doubleToLongBits(getStep()));
+          getStartY());
+      hash = (37 * hash) + ENDY_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getEndY());
+      hash = (37 * hash) + STARTT_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getStartT());
+      hash = (37 * hash) + ENDT_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getEndT());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -373,11 +463,17 @@ public final class CalculatorService {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        startTime_ = 0D;
+        startX_ = 0L;
 
-        endTime_ = 0D;
+        endX_ = 0L;
 
-        step_ = 0D;
+        startY_ = 0L;
+
+        endY_ = 0L;
+
+        startT_ = 0L;
+
+        endT_ = 0L;
 
         return this;
       }
@@ -405,9 +501,12 @@ public final class CalculatorService {
       @java.lang.Override
       public com.test.grpc.CalculatorService.Request buildPartial() {
         com.test.grpc.CalculatorService.Request result = new com.test.grpc.CalculatorService.Request(this);
-        result.startTime_ = startTime_;
-        result.endTime_ = endTime_;
-        result.step_ = step_;
+        result.startX_ = startX_;
+        result.endX_ = endX_;
+        result.startY_ = startY_;
+        result.endY_ = endY_;
+        result.startT_ = startT_;
+        result.endT_ = endT_;
         onBuilt();
         return result;
       }
@@ -456,14 +555,23 @@ public final class CalculatorService {
 
       public Builder mergeFrom(com.test.grpc.CalculatorService.Request other) {
         if (other == com.test.grpc.CalculatorService.Request.getDefaultInstance()) return this;
-        if (other.getStartTime() != 0D) {
-          setStartTime(other.getStartTime());
+        if (other.getStartX() != 0L) {
+          setStartX(other.getStartX());
         }
-        if (other.getEndTime() != 0D) {
-          setEndTime(other.getEndTime());
+        if (other.getEndX() != 0L) {
+          setEndX(other.getEndX());
         }
-        if (other.getStep() != 0D) {
-          setStep(other.getStep());
+        if (other.getStartY() != 0L) {
+          setStartY(other.getStartY());
+        }
+        if (other.getEndY() != 0L) {
+          setEndY(other.getEndY());
+        }
+        if (other.getStartT() != 0L) {
+          setStartT(other.getStartT());
+        }
+        if (other.getEndT() != 0L) {
+          setEndT(other.getEndT());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -494,80 +602,158 @@ public final class CalculatorService {
         return this;
       }
 
-      private double startTime_ ;
+      private long startX_ ;
       /**
-       * <code>double startTime = 1;</code>
+       * <code>int64 startX = 1;</code>
        */
-      public double getStartTime() {
-        return startTime_;
+      public long getStartX() {
+        return startX_;
       }
       /**
-       * <code>double startTime = 1;</code>
+       * <code>int64 startX = 1;</code>
        */
-      public Builder setStartTime(double value) {
+      public Builder setStartX(long value) {
         
-        startTime_ = value;
+        startX_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>double startTime = 1;</code>
+       * <code>int64 startX = 1;</code>
        */
-      public Builder clearStartTime() {
+      public Builder clearStartX() {
         
-        startTime_ = 0D;
-        onChanged();
-        return this;
-      }
-
-      private double endTime_ ;
-      /**
-       * <code>double endTime = 2;</code>
-       */
-      public double getEndTime() {
-        return endTime_;
-      }
-      /**
-       * <code>double endTime = 2;</code>
-       */
-      public Builder setEndTime(double value) {
-        
-        endTime_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>double endTime = 2;</code>
-       */
-      public Builder clearEndTime() {
-        
-        endTime_ = 0D;
+        startX_ = 0L;
         onChanged();
         return this;
       }
 
-      private double step_ ;
+      private long endX_ ;
       /**
-       * <code>double step = 3;</code>
+       * <code>int64 endX = 2;</code>
        */
-      public double getStep() {
-        return step_;
+      public long getEndX() {
+        return endX_;
       }
       /**
-       * <code>double step = 3;</code>
+       * <code>int64 endX = 2;</code>
        */
-      public Builder setStep(double value) {
+      public Builder setEndX(long value) {
         
-        step_ = value;
+        endX_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>double step = 3;</code>
+       * <code>int64 endX = 2;</code>
        */
-      public Builder clearStep() {
+      public Builder clearEndX() {
         
-        step_ = 0D;
+        endX_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long startY_ ;
+      /**
+       * <code>int64 startY = 3;</code>
+       */
+      public long getStartY() {
+        return startY_;
+      }
+      /**
+       * <code>int64 startY = 3;</code>
+       */
+      public Builder setStartY(long value) {
+        
+        startY_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 startY = 3;</code>
+       */
+      public Builder clearStartY() {
+        
+        startY_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long endY_ ;
+      /**
+       * <code>int64 endY = 4;</code>
+       */
+      public long getEndY() {
+        return endY_;
+      }
+      /**
+       * <code>int64 endY = 4;</code>
+       */
+      public Builder setEndY(long value) {
+        
+        endY_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 endY = 4;</code>
+       */
+      public Builder clearEndY() {
+        
+        endY_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long startT_ ;
+      /**
+       * <code>int64 startT = 5;</code>
+       */
+      public long getStartT() {
+        return startT_;
+      }
+      /**
+       * <code>int64 startT = 5;</code>
+       */
+      public Builder setStartT(long value) {
+        
+        startT_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 startT = 5;</code>
+       */
+      public Builder clearStartT() {
+        
+        startT_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long endT_ ;
+      /**
+       * <code>int64 endT = 6;</code>
+       */
+      public long getEndT() {
+        return endT_;
+      }
+      /**
+       * <code>int64 endT = 6;</code>
+       */
+      public Builder setEndT(long value) {
+        
+        endT_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 endT = 6;</code>
+       */
+      public Builder clearEndT() {
+        
+        endT_ = 0L;
         onChanged();
         return this;
       }
@@ -629,12 +815,22 @@ public final class CalculatorService {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>double time = 1;</code>
+     * <code>int64 time = 1;</code>
      */
-    double getTime();
+    long getTime();
 
     /**
-     * <code>double result = 2;</code>
+     * <code>int64 x = 2;</code>
+     */
+    long getX();
+
+    /**
+     * <code>int64 y = 3;</code>
+     */
+    long getY();
+
+    /**
+     * <code>double result = 4;</code>
      */
     double getResult();
   }
@@ -683,12 +879,22 @@ public final class CalculatorService {
             case 0:
               done = true;
               break;
-            case 9: {
+            case 8: {
 
-              time_ = input.readDouble();
+              time_ = input.readInt64();
               break;
             }
-            case 17: {
+            case 16: {
+
+              x_ = input.readInt64();
+              break;
+            }
+            case 24: {
+
+              y_ = input.readInt64();
+              break;
+            }
+            case 33: {
 
               result_ = input.readDouble();
               break;
@@ -726,18 +932,36 @@ public final class CalculatorService {
     }
 
     public static final int TIME_FIELD_NUMBER = 1;
-    private double time_;
+    private long time_;
     /**
-     * <code>double time = 1;</code>
+     * <code>int64 time = 1;</code>
      */
-    public double getTime() {
+    public long getTime() {
       return time_;
     }
 
-    public static final int RESULT_FIELD_NUMBER = 2;
+    public static final int X_FIELD_NUMBER = 2;
+    private long x_;
+    /**
+     * <code>int64 x = 2;</code>
+     */
+    public long getX() {
+      return x_;
+    }
+
+    public static final int Y_FIELD_NUMBER = 3;
+    private long y_;
+    /**
+     * <code>int64 y = 3;</code>
+     */
+    public long getY() {
+      return y_;
+    }
+
+    public static final int RESULT_FIELD_NUMBER = 4;
     private double result_;
     /**
-     * <code>double result = 2;</code>
+     * <code>double result = 4;</code>
      */
     public double getResult() {
       return result_;
@@ -757,11 +981,17 @@ public final class CalculatorService {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (time_ != 0D) {
-        output.writeDouble(1, time_);
+      if (time_ != 0L) {
+        output.writeInt64(1, time_);
+      }
+      if (x_ != 0L) {
+        output.writeInt64(2, x_);
+      }
+      if (y_ != 0L) {
+        output.writeInt64(3, y_);
       }
       if (result_ != 0D) {
-        output.writeDouble(2, result_);
+        output.writeDouble(4, result_);
       }
       unknownFields.writeTo(output);
     }
@@ -772,13 +1002,21 @@ public final class CalculatorService {
       if (size != -1) return size;
 
       size = 0;
-      if (time_ != 0D) {
+      if (time_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(1, time_);
+          .computeInt64Size(1, time_);
+      }
+      if (x_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, x_);
+      }
+      if (y_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, y_);
       }
       if (result_ != 0D) {
         size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(2, result_);
+          .computeDoubleSize(4, result_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -795,9 +1033,12 @@ public final class CalculatorService {
       }
       com.test.grpc.CalculatorService.Response other = (com.test.grpc.CalculatorService.Response) obj;
 
-      if (java.lang.Double.doubleToLongBits(getTime())
-          != java.lang.Double.doubleToLongBits(
-              other.getTime())) return false;
+      if (getTime()
+          != other.getTime()) return false;
+      if (getX()
+          != other.getX()) return false;
+      if (getY()
+          != other.getY()) return false;
       if (java.lang.Double.doubleToLongBits(getResult())
           != java.lang.Double.doubleToLongBits(
               other.getResult())) return false;
@@ -814,7 +1055,13 @@ public final class CalculatorService {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + TIME_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          java.lang.Double.doubleToLongBits(getTime()));
+          getTime());
+      hash = (37 * hash) + X_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getX());
+      hash = (37 * hash) + Y_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getY());
       hash = (37 * hash) + RESULT_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           java.lang.Double.doubleToLongBits(getResult()));
@@ -951,7 +1198,11 @@ public final class CalculatorService {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        time_ = 0D;
+        time_ = 0L;
+
+        x_ = 0L;
+
+        y_ = 0L;
 
         result_ = 0D;
 
@@ -982,6 +1233,8 @@ public final class CalculatorService {
       public com.test.grpc.CalculatorService.Response buildPartial() {
         com.test.grpc.CalculatorService.Response result = new com.test.grpc.CalculatorService.Response(this);
         result.time_ = time_;
+        result.x_ = x_;
+        result.y_ = y_;
         result.result_ = result_;
         onBuilt();
         return result;
@@ -1031,8 +1284,14 @@ public final class CalculatorService {
 
       public Builder mergeFrom(com.test.grpc.CalculatorService.Response other) {
         if (other == com.test.grpc.CalculatorService.Response.getDefaultInstance()) return this;
-        if (other.getTime() != 0D) {
+        if (other.getTime() != 0L) {
           setTime(other.getTime());
+        }
+        if (other.getX() != 0L) {
+          setX(other.getX());
+        }
+        if (other.getY() != 0L) {
+          setY(other.getY());
         }
         if (other.getResult() != 0D) {
           setResult(other.getResult());
@@ -1066,41 +1325,93 @@ public final class CalculatorService {
         return this;
       }
 
-      private double time_ ;
+      private long time_ ;
       /**
-       * <code>double time = 1;</code>
+       * <code>int64 time = 1;</code>
        */
-      public double getTime() {
+      public long getTime() {
         return time_;
       }
       /**
-       * <code>double time = 1;</code>
+       * <code>int64 time = 1;</code>
        */
-      public Builder setTime(double value) {
+      public Builder setTime(long value) {
         
         time_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>double time = 1;</code>
+       * <code>int64 time = 1;</code>
        */
       public Builder clearTime() {
         
-        time_ = 0D;
+        time_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long x_ ;
+      /**
+       * <code>int64 x = 2;</code>
+       */
+      public long getX() {
+        return x_;
+      }
+      /**
+       * <code>int64 x = 2;</code>
+       */
+      public Builder setX(long value) {
+        
+        x_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 x = 2;</code>
+       */
+      public Builder clearX() {
+        
+        x_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long y_ ;
+      /**
+       * <code>int64 y = 3;</code>
+       */
+      public long getY() {
+        return y_;
+      }
+      /**
+       * <code>int64 y = 3;</code>
+       */
+      public Builder setY(long value) {
+        
+        y_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 y = 3;</code>
+       */
+      public Builder clearY() {
+        
+        y_ = 0L;
         onChanged();
         return this;
       }
 
       private double result_ ;
       /**
-       * <code>double result = 2;</code>
+       * <code>double result = 4;</code>
        */
       public double getResult() {
         return result_;
       }
       /**
-       * <code>double result = 2;</code>
+       * <code>double result = 4;</code>
        */
       public Builder setResult(double value) {
         
@@ -1109,7 +1420,7 @@ public final class CalculatorService {
         return this;
       }
       /**
-       * <code>double result = 2;</code>
+       * <code>double result = 4;</code>
        */
       public Builder clearResult() {
         
@@ -1170,6 +1481,794 @@ public final class CalculatorService {
 
   }
 
+  public interface ResponseArrayOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.test.grpc.ResponseArray)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .com.test.grpc.Response responses = 1;</code>
+     */
+    java.util.List<com.test.grpc.CalculatorService.Response> 
+        getResponsesList();
+    /**
+     * <code>repeated .com.test.grpc.Response responses = 1;</code>
+     */
+    com.test.grpc.CalculatorService.Response getResponses(int index);
+    /**
+     * <code>repeated .com.test.grpc.Response responses = 1;</code>
+     */
+    int getResponsesCount();
+    /**
+     * <code>repeated .com.test.grpc.Response responses = 1;</code>
+     */
+    java.util.List<? extends com.test.grpc.CalculatorService.ResponseOrBuilder> 
+        getResponsesOrBuilderList();
+    /**
+     * <code>repeated .com.test.grpc.Response responses = 1;</code>
+     */
+    com.test.grpc.CalculatorService.ResponseOrBuilder getResponsesOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code com.test.grpc.ResponseArray}
+   */
+  public  static final class ResponseArray extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.test.grpc.ResponseArray)
+      ResponseArrayOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ResponseArray.newBuilder() to construct.
+    private ResponseArray(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ResponseArray() {
+      responses_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ResponseArray();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ResponseArray(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                responses_ = new java.util.ArrayList<com.test.grpc.CalculatorService.Response>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              responses_.add(
+                  input.readMessage(com.test.grpc.CalculatorService.Response.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          responses_ = java.util.Collections.unmodifiableList(responses_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.test.grpc.CalculatorService.internal_static_com_test_grpc_ResponseArray_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.test.grpc.CalculatorService.internal_static_com_test_grpc_ResponseArray_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.test.grpc.CalculatorService.ResponseArray.class, com.test.grpc.CalculatorService.ResponseArray.Builder.class);
+    }
+
+    public static final int RESPONSES_FIELD_NUMBER = 1;
+    private java.util.List<com.test.grpc.CalculatorService.Response> responses_;
+    /**
+     * <code>repeated .com.test.grpc.Response responses = 1;</code>
+     */
+    public java.util.List<com.test.grpc.CalculatorService.Response> getResponsesList() {
+      return responses_;
+    }
+    /**
+     * <code>repeated .com.test.grpc.Response responses = 1;</code>
+     */
+    public java.util.List<? extends com.test.grpc.CalculatorService.ResponseOrBuilder> 
+        getResponsesOrBuilderList() {
+      return responses_;
+    }
+    /**
+     * <code>repeated .com.test.grpc.Response responses = 1;</code>
+     */
+    public int getResponsesCount() {
+      return responses_.size();
+    }
+    /**
+     * <code>repeated .com.test.grpc.Response responses = 1;</code>
+     */
+    public com.test.grpc.CalculatorService.Response getResponses(int index) {
+      return responses_.get(index);
+    }
+    /**
+     * <code>repeated .com.test.grpc.Response responses = 1;</code>
+     */
+    public com.test.grpc.CalculatorService.ResponseOrBuilder getResponsesOrBuilder(
+        int index) {
+      return responses_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < responses_.size(); i++) {
+        output.writeMessage(1, responses_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < responses_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, responses_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.test.grpc.CalculatorService.ResponseArray)) {
+        return super.equals(obj);
+      }
+      com.test.grpc.CalculatorService.ResponseArray other = (com.test.grpc.CalculatorService.ResponseArray) obj;
+
+      if (!getResponsesList()
+          .equals(other.getResponsesList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getResponsesCount() > 0) {
+        hash = (37 * hash) + RESPONSES_FIELD_NUMBER;
+        hash = (53 * hash) + getResponsesList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.test.grpc.CalculatorService.ResponseArray parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.test.grpc.CalculatorService.ResponseArray parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.test.grpc.CalculatorService.ResponseArray parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.test.grpc.CalculatorService.ResponseArray parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.test.grpc.CalculatorService.ResponseArray parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.test.grpc.CalculatorService.ResponseArray parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.test.grpc.CalculatorService.ResponseArray parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.test.grpc.CalculatorService.ResponseArray parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.test.grpc.CalculatorService.ResponseArray parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.test.grpc.CalculatorService.ResponseArray parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.test.grpc.CalculatorService.ResponseArray parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.test.grpc.CalculatorService.ResponseArray parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.test.grpc.CalculatorService.ResponseArray prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.test.grpc.ResponseArray}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.test.grpc.ResponseArray)
+        com.test.grpc.CalculatorService.ResponseArrayOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.test.grpc.CalculatorService.internal_static_com_test_grpc_ResponseArray_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.test.grpc.CalculatorService.internal_static_com_test_grpc_ResponseArray_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.test.grpc.CalculatorService.ResponseArray.class, com.test.grpc.CalculatorService.ResponseArray.Builder.class);
+      }
+
+      // Construct using com.test.grpc.CalculatorService.ResponseArray.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getResponsesFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (responsesBuilder_ == null) {
+          responses_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          responsesBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.test.grpc.CalculatorService.internal_static_com_test_grpc_ResponseArray_descriptor;
+      }
+
+      @java.lang.Override
+      public com.test.grpc.CalculatorService.ResponseArray getDefaultInstanceForType() {
+        return com.test.grpc.CalculatorService.ResponseArray.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.test.grpc.CalculatorService.ResponseArray build() {
+        com.test.grpc.CalculatorService.ResponseArray result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.test.grpc.CalculatorService.ResponseArray buildPartial() {
+        com.test.grpc.CalculatorService.ResponseArray result = new com.test.grpc.CalculatorService.ResponseArray(this);
+        int from_bitField0_ = bitField0_;
+        if (responsesBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            responses_ = java.util.Collections.unmodifiableList(responses_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.responses_ = responses_;
+        } else {
+          result.responses_ = responsesBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.test.grpc.CalculatorService.ResponseArray) {
+          return mergeFrom((com.test.grpc.CalculatorService.ResponseArray)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.test.grpc.CalculatorService.ResponseArray other) {
+        if (other == com.test.grpc.CalculatorService.ResponseArray.getDefaultInstance()) return this;
+        if (responsesBuilder_ == null) {
+          if (!other.responses_.isEmpty()) {
+            if (responses_.isEmpty()) {
+              responses_ = other.responses_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureResponsesIsMutable();
+              responses_.addAll(other.responses_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.responses_.isEmpty()) {
+            if (responsesBuilder_.isEmpty()) {
+              responsesBuilder_.dispose();
+              responsesBuilder_ = null;
+              responses_ = other.responses_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              responsesBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getResponsesFieldBuilder() : null;
+            } else {
+              responsesBuilder_.addAllMessages(other.responses_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.test.grpc.CalculatorService.ResponseArray parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.test.grpc.CalculatorService.ResponseArray) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<com.test.grpc.CalculatorService.Response> responses_ =
+        java.util.Collections.emptyList();
+      private void ensureResponsesIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          responses_ = new java.util.ArrayList<com.test.grpc.CalculatorService.Response>(responses_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.test.grpc.CalculatorService.Response, com.test.grpc.CalculatorService.Response.Builder, com.test.grpc.CalculatorService.ResponseOrBuilder> responsesBuilder_;
+
+      /**
+       * <code>repeated .com.test.grpc.Response responses = 1;</code>
+       */
+      public java.util.List<com.test.grpc.CalculatorService.Response> getResponsesList() {
+        if (responsesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(responses_);
+        } else {
+          return responsesBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .com.test.grpc.Response responses = 1;</code>
+       */
+      public int getResponsesCount() {
+        if (responsesBuilder_ == null) {
+          return responses_.size();
+        } else {
+          return responsesBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .com.test.grpc.Response responses = 1;</code>
+       */
+      public com.test.grpc.CalculatorService.Response getResponses(int index) {
+        if (responsesBuilder_ == null) {
+          return responses_.get(index);
+        } else {
+          return responsesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .com.test.grpc.Response responses = 1;</code>
+       */
+      public Builder setResponses(
+          int index, com.test.grpc.CalculatorService.Response value) {
+        if (responsesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureResponsesIsMutable();
+          responses_.set(index, value);
+          onChanged();
+        } else {
+          responsesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.test.grpc.Response responses = 1;</code>
+       */
+      public Builder setResponses(
+          int index, com.test.grpc.CalculatorService.Response.Builder builderForValue) {
+        if (responsesBuilder_ == null) {
+          ensureResponsesIsMutable();
+          responses_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          responsesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.test.grpc.Response responses = 1;</code>
+       */
+      public Builder addResponses(com.test.grpc.CalculatorService.Response value) {
+        if (responsesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureResponsesIsMutable();
+          responses_.add(value);
+          onChanged();
+        } else {
+          responsesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.test.grpc.Response responses = 1;</code>
+       */
+      public Builder addResponses(
+          int index, com.test.grpc.CalculatorService.Response value) {
+        if (responsesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureResponsesIsMutable();
+          responses_.add(index, value);
+          onChanged();
+        } else {
+          responsesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.test.grpc.Response responses = 1;</code>
+       */
+      public Builder addResponses(
+          com.test.grpc.CalculatorService.Response.Builder builderForValue) {
+        if (responsesBuilder_ == null) {
+          ensureResponsesIsMutable();
+          responses_.add(builderForValue.build());
+          onChanged();
+        } else {
+          responsesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.test.grpc.Response responses = 1;</code>
+       */
+      public Builder addResponses(
+          int index, com.test.grpc.CalculatorService.Response.Builder builderForValue) {
+        if (responsesBuilder_ == null) {
+          ensureResponsesIsMutable();
+          responses_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          responsesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.test.grpc.Response responses = 1;</code>
+       */
+      public Builder addAllResponses(
+          java.lang.Iterable<? extends com.test.grpc.CalculatorService.Response> values) {
+        if (responsesBuilder_ == null) {
+          ensureResponsesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, responses_);
+          onChanged();
+        } else {
+          responsesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.test.grpc.Response responses = 1;</code>
+       */
+      public Builder clearResponses() {
+        if (responsesBuilder_ == null) {
+          responses_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          responsesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.test.grpc.Response responses = 1;</code>
+       */
+      public Builder removeResponses(int index) {
+        if (responsesBuilder_ == null) {
+          ensureResponsesIsMutable();
+          responses_.remove(index);
+          onChanged();
+        } else {
+          responsesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.test.grpc.Response responses = 1;</code>
+       */
+      public com.test.grpc.CalculatorService.Response.Builder getResponsesBuilder(
+          int index) {
+        return getResponsesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .com.test.grpc.Response responses = 1;</code>
+       */
+      public com.test.grpc.CalculatorService.ResponseOrBuilder getResponsesOrBuilder(
+          int index) {
+        if (responsesBuilder_ == null) {
+          return responses_.get(index);  } else {
+          return responsesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .com.test.grpc.Response responses = 1;</code>
+       */
+      public java.util.List<? extends com.test.grpc.CalculatorService.ResponseOrBuilder> 
+           getResponsesOrBuilderList() {
+        if (responsesBuilder_ != null) {
+          return responsesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(responses_);
+        }
+      }
+      /**
+       * <code>repeated .com.test.grpc.Response responses = 1;</code>
+       */
+      public com.test.grpc.CalculatorService.Response.Builder addResponsesBuilder() {
+        return getResponsesFieldBuilder().addBuilder(
+            com.test.grpc.CalculatorService.Response.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.test.grpc.Response responses = 1;</code>
+       */
+      public com.test.grpc.CalculatorService.Response.Builder addResponsesBuilder(
+          int index) {
+        return getResponsesFieldBuilder().addBuilder(
+            index, com.test.grpc.CalculatorService.Response.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.test.grpc.Response responses = 1;</code>
+       */
+      public java.util.List<com.test.grpc.CalculatorService.Response.Builder> 
+           getResponsesBuilderList() {
+        return getResponsesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.test.grpc.CalculatorService.Response, com.test.grpc.CalculatorService.Response.Builder, com.test.grpc.CalculatorService.ResponseOrBuilder> 
+          getResponsesFieldBuilder() {
+        if (responsesBuilder_ == null) {
+          responsesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.test.grpc.CalculatorService.Response, com.test.grpc.CalculatorService.Response.Builder, com.test.grpc.CalculatorService.ResponseOrBuilder>(
+                  responses_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          responses_ = null;
+        }
+        return responsesBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.test.grpc.ResponseArray)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.test.grpc.ResponseArray)
+    private static final com.test.grpc.CalculatorService.ResponseArray DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.test.grpc.CalculatorService.ResponseArray();
+    }
+
+    public static com.test.grpc.CalculatorService.ResponseArray getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ResponseArray>
+        PARSER = new com.google.protobuf.AbstractParser<ResponseArray>() {
+      @java.lang.Override
+      public ResponseArray parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ResponseArray(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ResponseArray> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ResponseArray> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.test.grpc.CalculatorService.ResponseArray getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_test_grpc_Request_descriptor;
   private static final 
@@ -1180,6 +2279,11 @@ public final class CalculatorService {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_test_grpc_Response_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_test_grpc_ResponseArray_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_test_grpc_ResponseArray_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -1190,11 +2294,14 @@ public final class CalculatorService {
   static {
     java.lang.String[] descriptorData = {
       "\n\027CalculatorService.proto\022\rcom.test.grpc" +
-      "\";\n\007Request\022\021\n\tstartTime\030\001 \001(\001\022\017\n\007endTim" +
-      "e\030\002 \001(\001\022\014\n\004step\030\003 \001(\001\"(\n\010Response\022\014\n\004tim" +
-      "e\030\001 \001(\001\022\016\n\006result\030\002 \001(\0012L\n\nCalculator\022>\n" +
-      "\tcalculate\022\026.com.test.grpc.Request\032\027.com" +
-      ".test.grpc.Response0\001b\006proto3"
+      "\"c\n\007Request\022\016\n\006startX\030\001 \001(\003\022\014\n\004endX\030\002 \001(" +
+      "\003\022\016\n\006startY\030\003 \001(\003\022\014\n\004endY\030\004 \001(\003\022\016\n\006start" +
+      "T\030\005 \001(\003\022\014\n\004endT\030\006 \001(\003\">\n\010Response\022\014\n\004tim" +
+      "e\030\001 \001(\003\022\t\n\001x\030\002 \001(\003\022\t\n\001y\030\003 \001(\003\022\016\n\006result\030" +
+      "\004 \001(\001\";\n\rResponseArray\022*\n\tresponses\030\001 \003(" +
+      "\0132\027.com.test.grpc.Response2Q\n\nCalculator" +
+      "\022C\n\tcalculate\022\026.com.test.grpc.Request\032\034." +
+      "com.test.grpc.ResponseArray0\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1205,13 +2312,19 @@ public final class CalculatorService {
     internal_static_com_test_grpc_Request_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_test_grpc_Request_descriptor,
-        new java.lang.String[] { "StartTime", "EndTime", "Step", });
+        new java.lang.String[] { "StartX", "EndX", "StartY", "EndY", "StartT", "EndT", });
     internal_static_com_test_grpc_Response_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_com_test_grpc_Response_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_test_grpc_Response_descriptor,
-        new java.lang.String[] { "Time", "Result", });
+        new java.lang.String[] { "Time", "X", "Y", "Result", });
+    internal_static_com_test_grpc_ResponseArray_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_com_test_grpc_ResponseArray_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_test_grpc_ResponseArray_descriptor,
+        new java.lang.String[] { "Responses", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

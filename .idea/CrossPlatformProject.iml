@@ -6,5 +6,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="library" name="dep_files" level="project" />
+    <orderEntry type="library" name="dep_files1" level="project" />
   </component>
 </module>

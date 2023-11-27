@@ -10,11 +10,15 @@ com\test\grpc\CalculatorService$RequestOrBuilder.class
 com\test\grpc\CalculatorGrpc.class
 com\test\grpc\CalculatorGrpc$CalculatorImplBase.class
 com\test\grpc\CalculatorGrpc$1.class
+com\test\grpc\CalculatorService$ResponseArray.class
+com\test\grpc\CalculatorService$ResponseArray$1.class
 com\test\grpc\CalculatorGrpc$CalculatorBlockingStub.class
 com\test\grpc\CalculatorGrpc$CalculatorFileDescriptorSupplier.class
 com\test\grpc\CalculatorService$Request.class
+com\test\grpc\CalculatorService$ResponseArray$Builder.class
 com\test\grpc\CalculatorService.class
 com\test\grpc\CalculatorService$ResponseOrBuilder.class
 com\test\grpc\CalculatorService$Request$Builder.class
 com\test\grpc\CalculatorService$Response.class
 com\test\grpc\CalculatorService$1.class
+com\test\grpc\CalculatorService$ResponseArrayOrBuilder.class
