@@ -18,6 +18,13 @@
         <maven.compiler.target>1.7</maven.compiler.target>
     </properties>
 
+    <repositories>
+        <repository>
+            <id>jzy3d-releases</id>
+            <url>https://maven.jzy3d.org/releases/</url>
+        </repository>
+    </repositories>
+
 
     <dependencies>
         <dependency>
@@ -89,6 +96,33 @@
             <groupId>com.github.yannrichet</groupId>
             <artifactId>JMathPlot</artifactId>
             <version>1.0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jzy3d</groupId>
+            <artifactId>jzy3d-api</artifactId>
+            <version>1.0.3</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.jzy3d/jzy3d-core -->
+        <dependency>
+            <groupId>org.jzy3d</groupId>
+            <artifactId>jzy3d-core</artifactId>
+            <version>2.2.1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.jzy3d/jzy3d-api -->
+        <dependency>
+            <groupId>org.jzy3d</groupId>
+            <artifactId>jzy3d-api</artifactId>
+            <version>1.0.3</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-swing -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-swing</artifactId>
+            <version>22-ea+16</version>
         </dependency>
 
 
