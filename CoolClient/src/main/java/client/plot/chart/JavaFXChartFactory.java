@@ -1,12 +1,16 @@
-package org.jzy3d.javafx;
+package client.plot.chart;
 
 import java.awt.image.BufferedImage;
 import java.util.Date;
 
+import client.plot.controllers.keyboard.JavaFXCameraKeyController;
+import client.plot.controllers.mouse.JavaFXCameraMouseController;
+import client.plot.controllers.mouse.JavaFXMousePickingController;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.Scene;
+import javafx.scene.SubScene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -21,9 +25,6 @@ import org.jzy3d.chart.controllers.keyboard.screenshot.NewtScreenshotKeyControll
 import org.jzy3d.chart.controllers.mouse.camera.ICameraMouseController;
 import org.jzy3d.chart.controllers.mouse.picking.IMousePickingController;
 import org.jzy3d.chart.factories.AWTChartComponentFactory;
-import org.jzy3d.javafx.controllers.keyboard.JavaFXCameraKeyController;
-import org.jzy3d.javafx.controllers.mouse.JavaFXCameraMouseController;
-import org.jzy3d.javafx.controllers.mouse.JavaFXMousePickingController;
 import org.jzy3d.maths.Utils;
 import org.jzy3d.plot3d.rendering.canvas.OffscreenCanvas;
 import org.jzy3d.plot3d.rendering.canvas.Quality;
@@ -33,7 +34,6 @@ import org.jzy3d.plot3d.rendering.view.Renderer3d;
 import org.jzy3d.plot3d.rendering.view.View;
 
 @SuppressWarnings("restriction")
-/* Disable JavaFX access restriction warnings */
 public class JavaFXChartFactory extends AWTChartComponentFactory {
     static Logger LOGGER = Logger.getLogger(JavaFXChartFactory.class);
 
@@ -55,14 +55,6 @@ public class JavaFXChartFactory extends AWTChartComponentFactory {
         }
     }
 
-    /**
-     * Return an {@link ImageView} from an {@link AWTChart} expected to render
-     * offscreen and to use a {@link JavaFXRenderer3d} poping Images when the
-     * chart is redrawn.
-     * 
-     * @param chart
-     * @return
-     */
     public ImageView bindImageView(AWTChart chart) {
         ImageView imageView = new ImageView();
         imageView.fitHeightProperty();
@@ -114,7 +106,7 @@ public class JavaFXChartFactory extends AWTChartComponentFactory {
         });
     }
 
-    public void addSceneSizeChangedListener(Chart chart, Scene scene) {
+    public void addSceneSizeChangedListener(Chart chart, SubScene scene) {
         scene.widthProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue, Number oldSceneWidth, Number newSceneWidth) {
@@ -174,6 +166,11 @@ public class JavaFXChartFactory extends AWTChartComponentFactory {
     @Override
     public ICameraMouseController newMouseCameraController(Chart chart) {
         ICameraMouseController mouse = new JavaFXCameraMouseController(chart, null);
+        return mouse;
+    }
+
+    public ICameraMouseController newMouseCameraController(Chart chart, SubScene scene) {
+        ICameraMouseController mouse = new JavaFXCameraMouseController(chart, scene);
         return mouse;
     }
 

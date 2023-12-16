@@ -1,5 +1,6 @@
-package org.jzy3d.javafx.controllers.mouse;
+package client.plot.controllers.mouse;
 
+import client.plot.controllers.JavaFXChartController;
 import javafx.event.EventHandler;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
@@ -9,7 +10,6 @@ import javafx.scene.input.ScrollEvent;
 import org.jzy3d.chart.Chart;
 import org.jzy3d.chart.controllers.camera.AbstractCameraController;
 import org.jzy3d.chart.controllers.thread.camera.CameraThreadController;
-import org.jzy3d.javafx.controllers.JavaFXChartController;
 import org.jzy3d.maths.Coord2d;
 
 public class JavaFXCameraMouseController extends AbstractCameraController implements JavaFXChartController {
@@ -105,9 +105,9 @@ public class JavaFXCameraMouseController extends AbstractCameraController implem
     }
 
     protected void mouseWheelMoved(ScrollEvent e) {
-        stopThreadController();
-        float factor = 1 + (float)e.getDeltaY()/150;
-        zoomZ(factor);
+        //stopThreadController();
+        //float factor = 1 + (float)e.getDeltaY()/150;
+        //zoomZ(factor);
     }
 
     public boolean handleSlaveThread(MouseEvent e) {

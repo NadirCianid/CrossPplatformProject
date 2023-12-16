@@ -15,8 +15,7 @@ public class ClientApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        //TODO : путь относительно проекта
-        URL url = new File("D:\\STUDY\\unic\\Hlopin\\CrossPlatformProject\\CoolClient\\src\\main\\resources\\test.fxml").toURI().toURL();
+        URL url = new File(".\\CoolClient\\src\\main\\resources\\test.fxml").toURI().toURL();
 
         FXMLLoader fxmlLoader = new FXMLLoader(url);
         Parent root = fxmlLoader.load();

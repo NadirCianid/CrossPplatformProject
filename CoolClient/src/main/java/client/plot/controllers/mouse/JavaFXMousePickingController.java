@@ -1,8 +1,9 @@
-package org.jzy3d.javafx.controllers.mouse;
+package client.plot.controllers.mouse;
 
 
 import java.awt.event.MouseWheelEvent;
 
+import client.plot.controllers.JavaFXChartController;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
@@ -11,7 +12,6 @@ import org.jzy3d.chart.Chart;
 import org.jzy3d.chart.controllers.camera.AbstractCameraController;
 import org.jzy3d.chart.controllers.mouse.picking.IMousePickingController;
 import org.jzy3d.chart.controllers.thread.camera.CameraThreadController;
-import org.jzy3d.javafx.controllers.JavaFXChartController;
 import org.jzy3d.maths.Coord2d;
 import org.jzy3d.maths.Coord3d;
 import org.jzy3d.maths.IntegerCoord2d;

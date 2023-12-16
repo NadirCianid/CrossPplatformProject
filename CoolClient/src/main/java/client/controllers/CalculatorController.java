@@ -1,16 +1,18 @@
-package client.controlers;
+package client.controllers;
 
-import client.dto.Point;
 import client.network.NetworkManager;
-import client.plot.PlotMaker;
+import client.plot.SurfaceRenderer;
 import com.test.grpc.CalculatorGrpc;
 import com.test.grpc.CalculatorService;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.SubScene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
+import org.jzy3d.maths.Coord3d;
 
 import java.util.*;
 
@@ -29,6 +31,8 @@ public class CalculatorController extends CalculatorGrpc.CalculatorImplBase {
     private TextField startYTextField;
     @FXML
     private TextField endYTextField;
+    @FXML
+    private TextField zBoundTextField;
 
     @FXML
     private Slider timeSlider;
@@ -40,33 +44,48 @@ public class CalculatorController extends CalculatorGrpc.CalculatorImplBase {
     private Label errorLabel;
 
     @FXML
-    private Button showChartButton;
+    private SubScene chartScene;
 
+    @FXML
+    private Pane pane;
 
-    private Map<Long, List<Point>> allSeries;
+    private Map<Long, List<Coord3d>> allSeries;
 
     private static final String RED_COLOR = "-fx-background-color: red;";
 
     private static final String WHITE_COLOR = "-fx-background-color: white;";
+
 
     public void initialize() {
         allSeries = new HashMap<>();
         startButton.setDisable(true);
 
         errorLabel.setVisible(false);
-        showChartButton.setDisable(true);
+
+        initChart();
 
         addListeners();
     }
 
-    private void addListeners() {
+    private void initChart() {
+        List<Coord3d> points = new ArrayList<>();
 
+        chartScene.setVisible(true);
+
+        SurfaceRenderer surfaceRenderer = new SurfaceRenderer();
+        surfaceRenderer.renderSurface(chartScene, pane, points);
+    }
+
+    private void addListeners() {
         addTextFieldValidator(startTimeTextField);
         addTextFieldValidator(endTimeTextField);
         addTextFieldValidator(startXTextField);
         addTextFieldValidator(endXTextField);
         addTextFieldValidator(startYTextField);
         addTextFieldValidator(endYTextField);
+
+
+        timeSlider.valueProperty().addListener((observable -> showChartByTime()));
     }
 
     private void addTextFieldValidator(TextField textField) {
@@ -77,7 +96,15 @@ public class CalculatorController extends CalculatorGrpc.CalculatorImplBase {
     private void showChartByTime() {
         Long time = timeSlider.valueProperty().longValue();
         System.out.println(time);
-        PlotMaker.showChart(allSeries.get(time), time);
+        if (allSeries.get(time) != null) {
+            SurfaceRenderer su = new SurfaceRenderer();
+
+            if (zBoundTextField.getText().isEmpty() || !isZTextFieldOk()) {
+                su.renderSurface(chartScene, pane, allSeries.get(time));
+            } else {
+                su.renderZBoundedSurface(chartScene, pane, allSeries.get(time), Float.parseFloat(zBoundTextField.getText()));
+            }
+        }
     }
 
     @FXML
@@ -98,14 +125,14 @@ public class CalculatorController extends CalculatorGrpc.CalculatorImplBase {
                 while (results.hasNext()) {
                     CalculatorService.ResponseArray responses = results.next();
 
-                    List<Point> points = new ArrayList<>();
+                    List<Coord3d> points = new ArrayList<>();
                     long key = 0;
 
                     for (CalculatorService.Response resp : responses.getResponsesList()) {
 
                         logResponse(resp);
 
-                        points.add(new Point(resp.getX(), resp.getY(), resp.getResult()));
+                        points.add(new Coord3d(resp.getX(), resp.getY(), resp.getResult()));
                         key = resp.getTime();
 
                         Platform.runLater(() -> timeSlider.setMax(resp.getTime()));
@@ -113,7 +140,7 @@ public class CalculatorController extends CalculatorGrpc.CalculatorImplBase {
 
                     long finalKey = key;
                     Platform.runLater(() -> allSeries.put(finalKey, points));
-                    Platform.runLater(() -> showChartButton.setDisable(false));
+
                 }
 
             } catch (Exception e) {
@@ -168,6 +195,21 @@ public class CalculatorController extends CalculatorGrpc.CalculatorImplBase {
         }
 
         return areRequestParamsOk();
+    }
+
+    private boolean isZTextFieldOk() {
+        zBoundTextField.setStyle(WHITE_COLOR);
+        errorLabel.setVisible(false);
+
+        try {
+            Float.parseFloat(zBoundTextField.getText());
+        } catch (NumberFormatException e) {
+            zBoundTextField.setStyle(RED_COLOR);
+            errorLabel.setText("Некорректные данные в ограничении на Z!");
+            errorLabel.setVisible(true);
+            return false;
+        }
+        return true;
     }
 
     private boolean areRequestParamsOk() {

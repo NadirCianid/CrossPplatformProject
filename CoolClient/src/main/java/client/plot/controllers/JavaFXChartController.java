@@ -1,4 +1,4 @@
-package org.jzy3d.javafx.controllers;
+package client.plot.controllers;
 
 import javafx.scene.Node;
 
