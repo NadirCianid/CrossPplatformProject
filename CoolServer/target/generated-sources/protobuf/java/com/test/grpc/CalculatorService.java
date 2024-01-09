@@ -19,32 +19,42 @@ public final class CalculatorService {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int64 startX = 1;</code>
+     * <code>string methodName = 1;</code>
+     */
+    java.lang.String getMethodName();
+    /**
+     * <code>string methodName = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getMethodNameBytes();
+
+    /**
+     * <code>int64 startX = 2;</code>
      */
     long getStartX();
 
     /**
-     * <code>int64 endX = 2;</code>
+     * <code>int64 endX = 3;</code>
      */
     long getEndX();
 
     /**
-     * <code>int64 startY = 3;</code>
+     * <code>int64 startY = 4;</code>
      */
     long getStartY();
 
     /**
-     * <code>int64 endY = 4;</code>
+     * <code>int64 endY = 5;</code>
      */
     long getEndY();
 
     /**
-     * <code>int64 startT = 5;</code>
+     * <code>int64 startT = 6;</code>
      */
     long getStartT();
 
     /**
-     * <code>int64 endT = 6;</code>
+     * <code>int64 endT = 7;</code>
      */
     long getEndT();
   }
@@ -61,6 +71,7 @@ public final class CalculatorService {
       super(builder);
     }
     private Request() {
+      methodName_ = "";
     }
 
     @java.lang.Override
@@ -93,32 +104,38 @@ public final class CalculatorService {
             case 0:
               done = true;
               break;
-            case 8: {
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              startX_ = input.readInt64();
+              methodName_ = s;
               break;
             }
             case 16: {
 
-              endX_ = input.readInt64();
+              startX_ = input.readInt64();
               break;
             }
             case 24: {
 
-              startY_ = input.readInt64();
+              endX_ = input.readInt64();
               break;
             }
             case 32: {
 
-              endY_ = input.readInt64();
+              startY_ = input.readInt64();
               break;
             }
             case 40: {
 
-              startT_ = input.readInt64();
+              endY_ = input.readInt64();
               break;
             }
             case 48: {
+
+              startT_ = input.readInt64();
+              break;
+            }
+            case 56: {
 
               endT_ = input.readInt64();
               break;
@@ -155,55 +172,89 @@ public final class CalculatorService {
               com.test.grpc.CalculatorService.Request.class, com.test.grpc.CalculatorService.Request.Builder.class);
     }
 
-    public static final int STARTX_FIELD_NUMBER = 1;
+    public static final int METHODNAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object methodName_;
+    /**
+     * <code>string methodName = 1;</code>
+     */
+    public java.lang.String getMethodName() {
+      java.lang.Object ref = methodName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        methodName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string methodName = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getMethodNameBytes() {
+      java.lang.Object ref = methodName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        methodName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int STARTX_FIELD_NUMBER = 2;
     private long startX_;
     /**
-     * <code>int64 startX = 1;</code>
+     * <code>int64 startX = 2;</code>
      */
     public long getStartX() {
       return startX_;
     }
 
-    public static final int ENDX_FIELD_NUMBER = 2;
+    public static final int ENDX_FIELD_NUMBER = 3;
     private long endX_;
     /**
-     * <code>int64 endX = 2;</code>
+     * <code>int64 endX = 3;</code>
      */
     public long getEndX() {
       return endX_;
     }
 
-    public static final int STARTY_FIELD_NUMBER = 3;
+    public static final int STARTY_FIELD_NUMBER = 4;
     private long startY_;
     /**
-     * <code>int64 startY = 3;</code>
+     * <code>int64 startY = 4;</code>
      */
     public long getStartY() {
       return startY_;
     }
 
-    public static final int ENDY_FIELD_NUMBER = 4;
+    public static final int ENDY_FIELD_NUMBER = 5;
     private long endY_;
     /**
-     * <code>int64 endY = 4;</code>
+     * <code>int64 endY = 5;</code>
      */
     public long getEndY() {
       return endY_;
     }
 
-    public static final int STARTT_FIELD_NUMBER = 5;
+    public static final int STARTT_FIELD_NUMBER = 6;
     private long startT_;
     /**
-     * <code>int64 startT = 5;</code>
+     * <code>int64 startT = 6;</code>
      */
     public long getStartT() {
       return startT_;
     }
 
-    public static final int ENDT_FIELD_NUMBER = 6;
+    public static final int ENDT_FIELD_NUMBER = 7;
     private long endT_;
     /**
-     * <code>int64 endT = 6;</code>
+     * <code>int64 endT = 7;</code>
      */
     public long getEndT() {
       return endT_;
@@ -223,23 +274,26 @@ public final class CalculatorService {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (!getMethodNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, methodName_);
+      }
       if (startX_ != 0L) {
-        output.writeInt64(1, startX_);
+        output.writeInt64(2, startX_);
       }
       if (endX_ != 0L) {
-        output.writeInt64(2, endX_);
+        output.writeInt64(3, endX_);
       }
       if (startY_ != 0L) {
-        output.writeInt64(3, startY_);
+        output.writeInt64(4, startY_);
       }
       if (endY_ != 0L) {
-        output.writeInt64(4, endY_);
+        output.writeInt64(5, endY_);
       }
       if (startT_ != 0L) {
-        output.writeInt64(5, startT_);
+        output.writeInt64(6, startT_);
       }
       if (endT_ != 0L) {
-        output.writeInt64(6, endT_);
+        output.writeInt64(7, endT_);
       }
       unknownFields.writeTo(output);
     }
@@ -250,29 +304,32 @@ public final class CalculatorService {
       if (size != -1) return size;
 
       size = 0;
+      if (!getMethodNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, methodName_);
+      }
       if (startX_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(1, startX_);
+          .computeInt64Size(2, startX_);
       }
       if (endX_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(2, endX_);
+          .computeInt64Size(3, endX_);
       }
       if (startY_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(3, startY_);
+          .computeInt64Size(4, startY_);
       }
       if (endY_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(4, endY_);
+          .computeInt64Size(5, endY_);
       }
       if (startT_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(5, startT_);
+          .computeInt64Size(6, startT_);
       }
       if (endT_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(6, endT_);
+          .computeInt64Size(7, endT_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -289,6 +346,8 @@ public final class CalculatorService {
       }
       com.test.grpc.CalculatorService.Request other = (com.test.grpc.CalculatorService.Request) obj;
 
+      if (!getMethodName()
+          .equals(other.getMethodName())) return false;
       if (getStartX()
           != other.getStartX()) return false;
       if (getEndX()
@@ -312,6 +371,8 @@ public final class CalculatorService {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + METHODNAME_FIELD_NUMBER;
+      hash = (53 * hash) + getMethodName().hashCode();
       hash = (37 * hash) + STARTX_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getStartX());
@@ -463,6 +524,8 @@ public final class CalculatorService {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        methodName_ = "";
+
         startX_ = 0L;
 
         endX_ = 0L;
@@ -501,6 +564,7 @@ public final class CalculatorService {
       @java.lang.Override
       public com.test.grpc.CalculatorService.Request buildPartial() {
         com.test.grpc.CalculatorService.Request result = new com.test.grpc.CalculatorService.Request(this);
+        result.methodName_ = methodName_;
         result.startX_ = startX_;
         result.endX_ = endX_;
         result.startY_ = startY_;
@@ -555,6 +619,10 @@ public final class CalculatorService {
 
       public Builder mergeFrom(com.test.grpc.CalculatorService.Request other) {
         if (other == com.test.grpc.CalculatorService.Request.getDefaultInstance()) return this;
+        if (!other.getMethodName().isEmpty()) {
+          methodName_ = other.methodName_;
+          onChanged();
+        }
         if (other.getStartX() != 0L) {
           setStartX(other.getStartX());
         }
@@ -602,15 +670,84 @@ public final class CalculatorService {
         return this;
       }
 
+      private java.lang.Object methodName_ = "";
+      /**
+       * <code>string methodName = 1;</code>
+       */
+      public java.lang.String getMethodName() {
+        java.lang.Object ref = methodName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          methodName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string methodName = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getMethodNameBytes() {
+        java.lang.Object ref = methodName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          methodName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string methodName = 1;</code>
+       */
+      public Builder setMethodName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        methodName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string methodName = 1;</code>
+       */
+      public Builder clearMethodName() {
+        
+        methodName_ = getDefaultInstance().getMethodName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string methodName = 1;</code>
+       */
+      public Builder setMethodNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        methodName_ = value;
+        onChanged();
+        return this;
+      }
+
       private long startX_ ;
       /**
-       * <code>int64 startX = 1;</code>
+       * <code>int64 startX = 2;</code>
        */
       public long getStartX() {
         return startX_;
       }
       /**
-       * <code>int64 startX = 1;</code>
+       * <code>int64 startX = 2;</code>
        */
       public Builder setStartX(long value) {
         
@@ -619,7 +756,7 @@ public final class CalculatorService {
         return this;
       }
       /**
-       * <code>int64 startX = 1;</code>
+       * <code>int64 startX = 2;</code>
        */
       public Builder clearStartX() {
         
@@ -630,13 +767,13 @@ public final class CalculatorService {
 
       private long endX_ ;
       /**
-       * <code>int64 endX = 2;</code>
+       * <code>int64 endX = 3;</code>
        */
       public long getEndX() {
         return endX_;
       }
       /**
-       * <code>int64 endX = 2;</code>
+       * <code>int64 endX = 3;</code>
        */
       public Builder setEndX(long value) {
         
@@ -645,7 +782,7 @@ public final class CalculatorService {
         return this;
       }
       /**
-       * <code>int64 endX = 2;</code>
+       * <code>int64 endX = 3;</code>
        */
       public Builder clearEndX() {
         
@@ -656,13 +793,13 @@ public final class CalculatorService {
 
       private long startY_ ;
       /**
-       * <code>int64 startY = 3;</code>
+       * <code>int64 startY = 4;</code>
        */
       public long getStartY() {
         return startY_;
       }
       /**
-       * <code>int64 startY = 3;</code>
+       * <code>int64 startY = 4;</code>
        */
       public Builder setStartY(long value) {
         
@@ -671,7 +808,7 @@ public final class CalculatorService {
         return this;
       }
       /**
-       * <code>int64 startY = 3;</code>
+       * <code>int64 startY = 4;</code>
        */
       public Builder clearStartY() {
         
@@ -682,13 +819,13 @@ public final class CalculatorService {
 
       private long endY_ ;
       /**
-       * <code>int64 endY = 4;</code>
+       * <code>int64 endY = 5;</code>
        */
       public long getEndY() {
         return endY_;
       }
       /**
-       * <code>int64 endY = 4;</code>
+       * <code>int64 endY = 5;</code>
        */
       public Builder setEndY(long value) {
         
@@ -697,7 +834,7 @@ public final class CalculatorService {
         return this;
       }
       /**
-       * <code>int64 endY = 4;</code>
+       * <code>int64 endY = 5;</code>
        */
       public Builder clearEndY() {
         
@@ -708,13 +845,13 @@ public final class CalculatorService {
 
       private long startT_ ;
       /**
-       * <code>int64 startT = 5;</code>
+       * <code>int64 startT = 6;</code>
        */
       public long getStartT() {
         return startT_;
       }
       /**
-       * <code>int64 startT = 5;</code>
+       * <code>int64 startT = 6;</code>
        */
       public Builder setStartT(long value) {
         
@@ -723,7 +860,7 @@ public final class CalculatorService {
         return this;
       }
       /**
-       * <code>int64 startT = 5;</code>
+       * <code>int64 startT = 6;</code>
        */
       public Builder clearStartT() {
         
@@ -734,13 +871,13 @@ public final class CalculatorService {
 
       private long endT_ ;
       /**
-       * <code>int64 endT = 6;</code>
+       * <code>int64 endT = 7;</code>
        */
       public long getEndT() {
         return endT_;
       }
       /**
-       * <code>int64 endT = 6;</code>
+       * <code>int64 endT = 7;</code>
        */
       public Builder setEndT(long value) {
         
@@ -749,7 +886,7 @@ public final class CalculatorService {
         return this;
       }
       /**
-       * <code>int64 endT = 6;</code>
+       * <code>int64 endT = 7;</code>
        */
       public Builder clearEndT() {
         
@@ -2269,6 +2406,2144 @@ public final class CalculatorService {
 
   }
 
+  public interface GetOperationsRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.test.grpc.GetOperationsRequest)
+      com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * Protobuf type {@code com.test.grpc.GetOperationsRequest}
+   */
+  public  static final class GetOperationsRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.test.grpc.GetOperationsRequest)
+      GetOperationsRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use GetOperationsRequest.newBuilder() to construct.
+    private GetOperationsRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GetOperationsRequest() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetOperationsRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private GetOperationsRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.test.grpc.CalculatorService.internal_static_com_test_grpc_GetOperationsRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.test.grpc.CalculatorService.internal_static_com_test_grpc_GetOperationsRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.test.grpc.CalculatorService.GetOperationsRequest.class, com.test.grpc.CalculatorService.GetOperationsRequest.Builder.class);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.test.grpc.CalculatorService.GetOperationsRequest)) {
+        return super.equals(obj);
+      }
+      com.test.grpc.CalculatorService.GetOperationsRequest other = (com.test.grpc.CalculatorService.GetOperationsRequest) obj;
+
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.test.grpc.CalculatorService.GetOperationsRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.test.grpc.CalculatorService.GetOperationsRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.test.grpc.CalculatorService.GetOperationsRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.test.grpc.CalculatorService.GetOperationsRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.test.grpc.CalculatorService.GetOperationsRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.test.grpc.CalculatorService.GetOperationsRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.test.grpc.CalculatorService.GetOperationsRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.test.grpc.CalculatorService.GetOperationsRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.test.grpc.CalculatorService.GetOperationsRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.test.grpc.CalculatorService.GetOperationsRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.test.grpc.CalculatorService.GetOperationsRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.test.grpc.CalculatorService.GetOperationsRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.test.grpc.CalculatorService.GetOperationsRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.test.grpc.GetOperationsRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.test.grpc.GetOperationsRequest)
+        com.test.grpc.CalculatorService.GetOperationsRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.test.grpc.CalculatorService.internal_static_com_test_grpc_GetOperationsRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.test.grpc.CalculatorService.internal_static_com_test_grpc_GetOperationsRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.test.grpc.CalculatorService.GetOperationsRequest.class, com.test.grpc.CalculatorService.GetOperationsRequest.Builder.class);
+      }
+
+      // Construct using com.test.grpc.CalculatorService.GetOperationsRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.test.grpc.CalculatorService.internal_static_com_test_grpc_GetOperationsRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.test.grpc.CalculatorService.GetOperationsRequest getDefaultInstanceForType() {
+        return com.test.grpc.CalculatorService.GetOperationsRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.test.grpc.CalculatorService.GetOperationsRequest build() {
+        com.test.grpc.CalculatorService.GetOperationsRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.test.grpc.CalculatorService.GetOperationsRequest buildPartial() {
+        com.test.grpc.CalculatorService.GetOperationsRequest result = new com.test.grpc.CalculatorService.GetOperationsRequest(this);
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.test.grpc.CalculatorService.GetOperationsRequest) {
+          return mergeFrom((com.test.grpc.CalculatorService.GetOperationsRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.test.grpc.CalculatorService.GetOperationsRequest other) {
+        if (other == com.test.grpc.CalculatorService.GetOperationsRequest.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.test.grpc.CalculatorService.GetOperationsRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.test.grpc.CalculatorService.GetOperationsRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.test.grpc.GetOperationsRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.test.grpc.GetOperationsRequest)
+    private static final com.test.grpc.CalculatorService.GetOperationsRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.test.grpc.CalculatorService.GetOperationsRequest();
+    }
+
+    public static com.test.grpc.CalculatorService.GetOperationsRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GetOperationsRequest>
+        PARSER = new com.google.protobuf.AbstractParser<GetOperationsRequest>() {
+      @java.lang.Override
+      public GetOperationsRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new GetOperationsRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GetOperationsRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetOperationsRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.test.grpc.CalculatorService.GetOperationsRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface GetOperationsResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.test.grpc.GetOperationsResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated string method = 1;</code>
+     */
+    java.util.List<java.lang.String>
+        getMethodList();
+    /**
+     * <code>repeated string method = 1;</code>
+     */
+    int getMethodCount();
+    /**
+     * <code>repeated string method = 1;</code>
+     */
+    java.lang.String getMethod(int index);
+    /**
+     * <code>repeated string method = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getMethodBytes(int index);
+  }
+  /**
+   * Protobuf type {@code com.test.grpc.GetOperationsResponse}
+   */
+  public  static final class GetOperationsResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.test.grpc.GetOperationsResponse)
+      GetOperationsResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use GetOperationsResponse.newBuilder() to construct.
+    private GetOperationsResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GetOperationsResponse() {
+      method_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetOperationsResponse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private GetOperationsResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                method_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              method_.add(s);
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          method_ = method_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.test.grpc.CalculatorService.internal_static_com_test_grpc_GetOperationsResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.test.grpc.CalculatorService.internal_static_com_test_grpc_GetOperationsResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.test.grpc.CalculatorService.GetOperationsResponse.class, com.test.grpc.CalculatorService.GetOperationsResponse.Builder.class);
+    }
+
+    public static final int METHOD_FIELD_NUMBER = 1;
+    private com.google.protobuf.LazyStringList method_;
+    /**
+     * <code>repeated string method = 1;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getMethodList() {
+      return method_;
+    }
+    /**
+     * <code>repeated string method = 1;</code>
+     */
+    public int getMethodCount() {
+      return method_.size();
+    }
+    /**
+     * <code>repeated string method = 1;</code>
+     */
+    public java.lang.String getMethod(int index) {
+      return method_.get(index);
+    }
+    /**
+     * <code>repeated string method = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getMethodBytes(int index) {
+      return method_.getByteString(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < method_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, method_.getRaw(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      {
+        int dataSize = 0;
+        for (int i = 0; i < method_.size(); i++) {
+          dataSize += computeStringSizeNoTag(method_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getMethodList().size();
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.test.grpc.CalculatorService.GetOperationsResponse)) {
+        return super.equals(obj);
+      }
+      com.test.grpc.CalculatorService.GetOperationsResponse other = (com.test.grpc.CalculatorService.GetOperationsResponse) obj;
+
+      if (!getMethodList()
+          .equals(other.getMethodList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getMethodCount() > 0) {
+        hash = (37 * hash) + METHOD_FIELD_NUMBER;
+        hash = (53 * hash) + getMethodList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.test.grpc.CalculatorService.GetOperationsResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.test.grpc.CalculatorService.GetOperationsResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.test.grpc.CalculatorService.GetOperationsResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.test.grpc.CalculatorService.GetOperationsResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.test.grpc.CalculatorService.GetOperationsResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.test.grpc.CalculatorService.GetOperationsResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.test.grpc.CalculatorService.GetOperationsResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.test.grpc.CalculatorService.GetOperationsResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.test.grpc.CalculatorService.GetOperationsResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.test.grpc.CalculatorService.GetOperationsResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.test.grpc.CalculatorService.GetOperationsResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.test.grpc.CalculatorService.GetOperationsResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.test.grpc.CalculatorService.GetOperationsResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.test.grpc.GetOperationsResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.test.grpc.GetOperationsResponse)
+        com.test.grpc.CalculatorService.GetOperationsResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.test.grpc.CalculatorService.internal_static_com_test_grpc_GetOperationsResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.test.grpc.CalculatorService.internal_static_com_test_grpc_GetOperationsResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.test.grpc.CalculatorService.GetOperationsResponse.class, com.test.grpc.CalculatorService.GetOperationsResponse.Builder.class);
+      }
+
+      // Construct using com.test.grpc.CalculatorService.GetOperationsResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        method_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.test.grpc.CalculatorService.internal_static_com_test_grpc_GetOperationsResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public com.test.grpc.CalculatorService.GetOperationsResponse getDefaultInstanceForType() {
+        return com.test.grpc.CalculatorService.GetOperationsResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.test.grpc.CalculatorService.GetOperationsResponse build() {
+        com.test.grpc.CalculatorService.GetOperationsResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.test.grpc.CalculatorService.GetOperationsResponse buildPartial() {
+        com.test.grpc.CalculatorService.GetOperationsResponse result = new com.test.grpc.CalculatorService.GetOperationsResponse(this);
+        int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) != 0)) {
+          method_ = method_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.method_ = method_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.test.grpc.CalculatorService.GetOperationsResponse) {
+          return mergeFrom((com.test.grpc.CalculatorService.GetOperationsResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.test.grpc.CalculatorService.GetOperationsResponse other) {
+        if (other == com.test.grpc.CalculatorService.GetOperationsResponse.getDefaultInstance()) return this;
+        if (!other.method_.isEmpty()) {
+          if (method_.isEmpty()) {
+            method_ = other.method_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureMethodIsMutable();
+            method_.addAll(other.method_);
+          }
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.test.grpc.CalculatorService.GetOperationsResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.test.grpc.CalculatorService.GetOperationsResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.LazyStringList method_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureMethodIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          method_ = new com.google.protobuf.LazyStringArrayList(method_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated string method = 1;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getMethodList() {
+        return method_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string method = 1;</code>
+       */
+      public int getMethodCount() {
+        return method_.size();
+      }
+      /**
+       * <code>repeated string method = 1;</code>
+       */
+      public java.lang.String getMethod(int index) {
+        return method_.get(index);
+      }
+      /**
+       * <code>repeated string method = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getMethodBytes(int index) {
+        return method_.getByteString(index);
+      }
+      /**
+       * <code>repeated string method = 1;</code>
+       */
+      public Builder setMethod(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureMethodIsMutable();
+        method_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string method = 1;</code>
+       */
+      public Builder addMethod(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureMethodIsMutable();
+        method_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string method = 1;</code>
+       */
+      public Builder addAllMethod(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureMethodIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, method_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string method = 1;</code>
+       */
+      public Builder clearMethod() {
+        method_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string method = 1;</code>
+       */
+      public Builder addMethodBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureMethodIsMutable();
+        method_.add(value);
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.test.grpc.GetOperationsResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.test.grpc.GetOperationsResponse)
+    private static final com.test.grpc.CalculatorService.GetOperationsResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.test.grpc.CalculatorService.GetOperationsResponse();
+    }
+
+    public static com.test.grpc.CalculatorService.GetOperationsResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GetOperationsResponse>
+        PARSER = new com.google.protobuf.AbstractParser<GetOperationsResponse>() {
+      @java.lang.Override
+      public GetOperationsResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new GetOperationsResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GetOperationsResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetOperationsResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.test.grpc.CalculatorService.GetOperationsResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface GetFormulaRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.test.grpc.GetFormulaRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string operationName = 1;</code>
+     */
+    java.lang.String getOperationName();
+    /**
+     * <code>string operationName = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getOperationNameBytes();
+  }
+  /**
+   * Protobuf type {@code com.test.grpc.GetFormulaRequest}
+   */
+  public  static final class GetFormulaRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.test.grpc.GetFormulaRequest)
+      GetFormulaRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use GetFormulaRequest.newBuilder() to construct.
+    private GetFormulaRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GetFormulaRequest() {
+      operationName_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetFormulaRequest();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private GetFormulaRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              operationName_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.test.grpc.CalculatorService.internal_static_com_test_grpc_GetFormulaRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.test.grpc.CalculatorService.internal_static_com_test_grpc_GetFormulaRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.test.grpc.CalculatorService.GetFormulaRequest.class, com.test.grpc.CalculatorService.GetFormulaRequest.Builder.class);
+    }
+
+    public static final int OPERATIONNAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object operationName_;
+    /**
+     * <code>string operationName = 1;</code>
+     */
+    public java.lang.String getOperationName() {
+      java.lang.Object ref = operationName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        operationName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string operationName = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getOperationNameBytes() {
+      java.lang.Object ref = operationName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        operationName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getOperationNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, operationName_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getOperationNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, operationName_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.test.grpc.CalculatorService.GetFormulaRequest)) {
+        return super.equals(obj);
+      }
+      com.test.grpc.CalculatorService.GetFormulaRequest other = (com.test.grpc.CalculatorService.GetFormulaRequest) obj;
+
+      if (!getOperationName()
+          .equals(other.getOperationName())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + OPERATIONNAME_FIELD_NUMBER;
+      hash = (53 * hash) + getOperationName().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.test.grpc.CalculatorService.GetFormulaRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.test.grpc.CalculatorService.GetFormulaRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.test.grpc.CalculatorService.GetFormulaRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.test.grpc.CalculatorService.GetFormulaRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.test.grpc.CalculatorService.GetFormulaRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.test.grpc.CalculatorService.GetFormulaRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.test.grpc.CalculatorService.GetFormulaRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.test.grpc.CalculatorService.GetFormulaRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.test.grpc.CalculatorService.GetFormulaRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.test.grpc.CalculatorService.GetFormulaRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.test.grpc.CalculatorService.GetFormulaRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.test.grpc.CalculatorService.GetFormulaRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.test.grpc.CalculatorService.GetFormulaRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.test.grpc.GetFormulaRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.test.grpc.GetFormulaRequest)
+        com.test.grpc.CalculatorService.GetFormulaRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.test.grpc.CalculatorService.internal_static_com_test_grpc_GetFormulaRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.test.grpc.CalculatorService.internal_static_com_test_grpc_GetFormulaRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.test.grpc.CalculatorService.GetFormulaRequest.class, com.test.grpc.CalculatorService.GetFormulaRequest.Builder.class);
+      }
+
+      // Construct using com.test.grpc.CalculatorService.GetFormulaRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        operationName_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.test.grpc.CalculatorService.internal_static_com_test_grpc_GetFormulaRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.test.grpc.CalculatorService.GetFormulaRequest getDefaultInstanceForType() {
+        return com.test.grpc.CalculatorService.GetFormulaRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.test.grpc.CalculatorService.GetFormulaRequest build() {
+        com.test.grpc.CalculatorService.GetFormulaRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.test.grpc.CalculatorService.GetFormulaRequest buildPartial() {
+        com.test.grpc.CalculatorService.GetFormulaRequest result = new com.test.grpc.CalculatorService.GetFormulaRequest(this);
+        result.operationName_ = operationName_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.test.grpc.CalculatorService.GetFormulaRequest) {
+          return mergeFrom((com.test.grpc.CalculatorService.GetFormulaRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.test.grpc.CalculatorService.GetFormulaRequest other) {
+        if (other == com.test.grpc.CalculatorService.GetFormulaRequest.getDefaultInstance()) return this;
+        if (!other.getOperationName().isEmpty()) {
+          operationName_ = other.operationName_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.test.grpc.CalculatorService.GetFormulaRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.test.grpc.CalculatorService.GetFormulaRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object operationName_ = "";
+      /**
+       * <code>string operationName = 1;</code>
+       */
+      public java.lang.String getOperationName() {
+        java.lang.Object ref = operationName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          operationName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string operationName = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getOperationNameBytes() {
+        java.lang.Object ref = operationName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          operationName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string operationName = 1;</code>
+       */
+      public Builder setOperationName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        operationName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string operationName = 1;</code>
+       */
+      public Builder clearOperationName() {
+        
+        operationName_ = getDefaultInstance().getOperationName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string operationName = 1;</code>
+       */
+      public Builder setOperationNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        operationName_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.test.grpc.GetFormulaRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.test.grpc.GetFormulaRequest)
+    private static final com.test.grpc.CalculatorService.GetFormulaRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.test.grpc.CalculatorService.GetFormulaRequest();
+    }
+
+    public static com.test.grpc.CalculatorService.GetFormulaRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GetFormulaRequest>
+        PARSER = new com.google.protobuf.AbstractParser<GetFormulaRequest>() {
+      @java.lang.Override
+      public GetFormulaRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new GetFormulaRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GetFormulaRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetFormulaRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.test.grpc.CalculatorService.GetFormulaRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface GetFormulaResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.test.grpc.GetFormulaResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string formula = 1;</code>
+     */
+    java.lang.String getFormula();
+    /**
+     * <code>string formula = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getFormulaBytes();
+  }
+  /**
+   * Protobuf type {@code com.test.grpc.GetFormulaResponse}
+   */
+  public  static final class GetFormulaResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.test.grpc.GetFormulaResponse)
+      GetFormulaResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use GetFormulaResponse.newBuilder() to construct.
+    private GetFormulaResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GetFormulaResponse() {
+      formula_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetFormulaResponse();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private GetFormulaResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              formula_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.test.grpc.CalculatorService.internal_static_com_test_grpc_GetFormulaResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.test.grpc.CalculatorService.internal_static_com_test_grpc_GetFormulaResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.test.grpc.CalculatorService.GetFormulaResponse.class, com.test.grpc.CalculatorService.GetFormulaResponse.Builder.class);
+    }
+
+    public static final int FORMULA_FIELD_NUMBER = 1;
+    private volatile java.lang.Object formula_;
+    /**
+     * <code>string formula = 1;</code>
+     */
+    public java.lang.String getFormula() {
+      java.lang.Object ref = formula_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        formula_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string formula = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFormulaBytes() {
+      java.lang.Object ref = formula_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        formula_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getFormulaBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, formula_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getFormulaBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, formula_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.test.grpc.CalculatorService.GetFormulaResponse)) {
+        return super.equals(obj);
+      }
+      com.test.grpc.CalculatorService.GetFormulaResponse other = (com.test.grpc.CalculatorService.GetFormulaResponse) obj;
+
+      if (!getFormula()
+          .equals(other.getFormula())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + FORMULA_FIELD_NUMBER;
+      hash = (53 * hash) + getFormula().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.test.grpc.CalculatorService.GetFormulaResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.test.grpc.CalculatorService.GetFormulaResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.test.grpc.CalculatorService.GetFormulaResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.test.grpc.CalculatorService.GetFormulaResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.test.grpc.CalculatorService.GetFormulaResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.test.grpc.CalculatorService.GetFormulaResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.test.grpc.CalculatorService.GetFormulaResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.test.grpc.CalculatorService.GetFormulaResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.test.grpc.CalculatorService.GetFormulaResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.test.grpc.CalculatorService.GetFormulaResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.test.grpc.CalculatorService.GetFormulaResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.test.grpc.CalculatorService.GetFormulaResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.test.grpc.CalculatorService.GetFormulaResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.test.grpc.GetFormulaResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.test.grpc.GetFormulaResponse)
+        com.test.grpc.CalculatorService.GetFormulaResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.test.grpc.CalculatorService.internal_static_com_test_grpc_GetFormulaResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.test.grpc.CalculatorService.internal_static_com_test_grpc_GetFormulaResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.test.grpc.CalculatorService.GetFormulaResponse.class, com.test.grpc.CalculatorService.GetFormulaResponse.Builder.class);
+      }
+
+      // Construct using com.test.grpc.CalculatorService.GetFormulaResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        formula_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.test.grpc.CalculatorService.internal_static_com_test_grpc_GetFormulaResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public com.test.grpc.CalculatorService.GetFormulaResponse getDefaultInstanceForType() {
+        return com.test.grpc.CalculatorService.GetFormulaResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.test.grpc.CalculatorService.GetFormulaResponse build() {
+        com.test.grpc.CalculatorService.GetFormulaResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.test.grpc.CalculatorService.GetFormulaResponse buildPartial() {
+        com.test.grpc.CalculatorService.GetFormulaResponse result = new com.test.grpc.CalculatorService.GetFormulaResponse(this);
+        result.formula_ = formula_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.test.grpc.CalculatorService.GetFormulaResponse) {
+          return mergeFrom((com.test.grpc.CalculatorService.GetFormulaResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.test.grpc.CalculatorService.GetFormulaResponse other) {
+        if (other == com.test.grpc.CalculatorService.GetFormulaResponse.getDefaultInstance()) return this;
+        if (!other.getFormula().isEmpty()) {
+          formula_ = other.formula_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.test.grpc.CalculatorService.GetFormulaResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.test.grpc.CalculatorService.GetFormulaResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object formula_ = "";
+      /**
+       * <code>string formula = 1;</code>
+       */
+      public java.lang.String getFormula() {
+        java.lang.Object ref = formula_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          formula_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string formula = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getFormulaBytes() {
+        java.lang.Object ref = formula_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          formula_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string formula = 1;</code>
+       */
+      public Builder setFormula(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        formula_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string formula = 1;</code>
+       */
+      public Builder clearFormula() {
+        
+        formula_ = getDefaultInstance().getFormula();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string formula = 1;</code>
+       */
+      public Builder setFormulaBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        formula_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.test.grpc.GetFormulaResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.test.grpc.GetFormulaResponse)
+    private static final com.test.grpc.CalculatorService.GetFormulaResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.test.grpc.CalculatorService.GetFormulaResponse();
+    }
+
+    public static com.test.grpc.CalculatorService.GetFormulaResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GetFormulaResponse>
+        PARSER = new com.google.protobuf.AbstractParser<GetFormulaResponse>() {
+      @java.lang.Override
+      public GetFormulaResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new GetFormulaResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GetFormulaResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetFormulaResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.test.grpc.CalculatorService.GetFormulaResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_test_grpc_Request_descriptor;
   private static final 
@@ -2284,6 +4559,26 @@ public final class CalculatorService {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_test_grpc_ResponseArray_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_test_grpc_GetOperationsRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_test_grpc_GetOperationsRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_test_grpc_GetOperationsResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_test_grpc_GetOperationsResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_test_grpc_GetFormulaRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_test_grpc_GetFormulaRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_test_grpc_GetFormulaResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_test_grpc_GetFormulaResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -2294,14 +4589,24 @@ public final class CalculatorService {
   static {
     java.lang.String[] descriptorData = {
       "\n\027CalculatorService.proto\022\rcom.test.grpc" +
-      "\"c\n\007Request\022\016\n\006startX\030\001 \001(\003\022\014\n\004endX\030\002 \001(" +
-      "\003\022\016\n\006startY\030\003 \001(\003\022\014\n\004endY\030\004 \001(\003\022\016\n\006start" +
-      "T\030\005 \001(\003\022\014\n\004endT\030\006 \001(\003\">\n\010Response\022\014\n\004tim" +
-      "e\030\001 \001(\003\022\t\n\001x\030\002 \001(\003\022\t\n\001y\030\003 \001(\003\022\016\n\006result\030" +
-      "\004 \001(\001\";\n\rResponseArray\022*\n\tresponses\030\001 \003(" +
-      "\0132\027.com.test.grpc.Response2Q\n\nCalculator" +
-      "\022C\n\tcalculate\022\026.com.test.grpc.Request\032\034." +
-      "com.test.grpc.ResponseArray0\001b\006proto3"
+      "\"w\n\007Request\022\022\n\nmethodName\030\001 \001(\t\022\016\n\006start" +
+      "X\030\002 \001(\003\022\014\n\004endX\030\003 \001(\003\022\016\n\006startY\030\004 \001(\003\022\014\n" +
+      "\004endY\030\005 \001(\003\022\016\n\006startT\030\006 \001(\003\022\014\n\004endT\030\007 \001(" +
+      "\003\">\n\010Response\022\014\n\004time\030\001 \001(\003\022\t\n\001x\030\002 \001(\003\022\t" +
+      "\n\001y\030\003 \001(\003\022\016\n\006result\030\004 \001(\001\";\n\rResponseArr" +
+      "ay\022*\n\tresponses\030\001 \003(\0132\027.com.test.grpc.Re" +
+      "sponse\"\026\n\024GetOperationsRequest\"\'\n\025GetOpe" +
+      "rationsResponse\022\016\n\006method\030\001 \003(\t\"*\n\021GetFo" +
+      "rmulaRequest\022\025\n\roperationName\030\001 \001(\t\"%\n\022G" +
+      "etFormulaResponse\022\017\n\007formula\030\001 \001(\t2Q\n\nCa" +
+      "lculator\022C\n\tcalculate\022\026.com.test.grpc.Re" +
+      "quest\032\034.com.test.grpc.ResponseArray0\0012l\n" +
+      "\nOperations\022^\n\021getOperationNames\022#.com.t" +
+      "est.grpc.GetOperationsRequest\032$.com.test" +
+      ".grpc.GetOperationsResponse2\\\n\007Formula\022Q" +
+      "\n\ngetFormula\022 .com.test.grpc.GetFormulaR" +
+      "equest\032!.com.test.grpc.GetFormulaRespons" +
+      "eb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -2312,7 +4617,7 @@ public final class CalculatorService {
     internal_static_com_test_grpc_Request_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_test_grpc_Request_descriptor,
-        new java.lang.String[] { "StartX", "EndX", "StartY", "EndY", "StartT", "EndT", });
+        new java.lang.String[] { "MethodName", "StartX", "EndX", "StartY", "EndY", "StartT", "EndT", });
     internal_static_com_test_grpc_Response_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_com_test_grpc_Response_fieldAccessorTable = new
@@ -2325,6 +4630,30 @@ public final class CalculatorService {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_test_grpc_ResponseArray_descriptor,
         new java.lang.String[] { "Responses", });
+    internal_static_com_test_grpc_GetOperationsRequest_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_com_test_grpc_GetOperationsRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_test_grpc_GetOperationsRequest_descriptor,
+        new java.lang.String[] { });
+    internal_static_com_test_grpc_GetOperationsResponse_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_com_test_grpc_GetOperationsResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_test_grpc_GetOperationsResponse_descriptor,
+        new java.lang.String[] { "Method", });
+    internal_static_com_test_grpc_GetFormulaRequest_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_com_test_grpc_GetFormulaRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_test_grpc_GetFormulaRequest_descriptor,
+        new java.lang.String[] { "OperationName", });
+    internal_static_com_test_grpc_GetFormulaResponse_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_com_test_grpc_GetFormulaResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_test_grpc_GetFormulaResponse_descriptor,
+        new java.lang.String[] { "Formula", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

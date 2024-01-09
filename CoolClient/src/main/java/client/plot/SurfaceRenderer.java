@@ -1,7 +1,6 @@
 package client.plot;
 
 import client.plot.chart.JavaFXChartFactory;
-import client.plot.utils.ViewPointController;
 import javafx.scene.SubScene;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -18,27 +17,29 @@ import java.util.List;
 
 
 public class SurfaceRenderer {
+    private static ImageView imageView;
+    private static AWTChart chart;
+    private static JavaFXChartFactory factory;
 
+    private static Coord3d viewPoint = new Coord3d(1, 1, 1);
 
-    private ImageView imageView;
-    private AWTChart chart;
-    private JavaFXChartFactory factory;
+    private SurfaceRenderer(){}
 
-    public void renderSurface(SubScene subScene, Pane pane, List<Coord3d> points) {
+    public static void renderSurface(SubScene subScene, Pane pane, List<Coord3d> points) {
         render(subScene, pane, points, null);
     }
 
-    public void renderZBoundedSurface(SubScene subScene, Pane pane, List<Coord3d> points, Float zMax) {
+    public static void renderZBoundedSurface(SubScene subScene, Pane pane, List<Coord3d> points, Float zMax) {
         render(subScene, pane, points, zMax);
     }
 
-    private void render(SubScene subScene, Pane pane, List<Coord3d> points, Float zMax) {
+    private static void render(SubScene subScene, Pane pane, List<Coord3d> points, Float zMax) {
         factory = new JavaFXChartFactory();
 
         pane.getChildren().remove(imageView);
 
         chart = getDemoChart(factory, points);
-        chart.getView().setViewPoint(ViewPointController.viewPoint);
+        chart.getView().setViewPoint(viewPoint);
 
         if (zMax != null) {
             chart.getView().getBounds().setZmax(zMax);
@@ -54,29 +55,25 @@ public class SurfaceRenderer {
         chart.getView().addViewPointChangedListener((observable) -> saveCurrentViewPoint());
     }
 
-    private void saveCurrentViewPoint() {
-        ViewPointController.viewPoint = chart.getView().getViewPoint();
+    private static void saveCurrentViewPoint() {
+        viewPoint = chart.getView().getViewPoint();
     }
 
-    private AWTChart getDemoChart(JavaFXChartFactory factory, List<Coord3d> points) {
+    private static AWTChart getDemoChart(JavaFXChartFactory factory, List<Coord3d> points) {
         final String toolkit = "offscreen";
 
         Shape surface = Builder.buildDelaunay(points);
-
 
         surface.setColorMapper(new ColorMapper(new ColorMapRainbow(), surface.getBounds().getZmin(),
                 surface.getBounds().getZmax(),
                 new Color(1, 1, 1, .5f)));
 
-
         surface.setFaceDisplayed(true);
         surface.setWireframeDisplayed(false);
-
 
         Quality quality = Quality.Advanced;
         quality.setSmoothPolygon(true);
         quality.setAnimated(true);
-
 
         AWTChart chart = (AWTChart) factory.newChart(quality, toolkit);
         chart.getScene().getGraph().add(surface);

@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/CrossPlatformProject.iml" filepath="$PROJECT_DIR$/.idea/CrossPlatformProject.iml" />
-      <module fileurl="file://$PROJECT_DIR$/CoolClient/grpc-hello-server.iml" filepath="$PROJECT_DIR$/CoolClient/grpc-hello-server.iml" />
     </modules>
   </component>
 </project>

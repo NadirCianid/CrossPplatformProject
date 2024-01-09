@@ -7,9 +7,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="grpc-hello-server" />
+        <module name="grpc" />
         <module name="CoolServer" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="grpc-hello-server" target="9" />
+    </bytecodeTargetLevel>
   </component>
 </project>

@@ -4,14 +4,14 @@ import client.network.NetworkManager;
 import client.plot.SurfaceRenderer;
 import com.test.grpc.CalculatorGrpc;
 import com.test.grpc.CalculatorService;
+import com.test.grpc.FormulaGrpc;
+import com.test.grpc.OperationsGrpc;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.SubScene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.Slider;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
+import lombok.var;
 import org.jzy3d.maths.Coord3d;
 
 import java.util.*;
@@ -35,6 +35,9 @@ public class CalculatorController extends CalculatorGrpc.CalculatorImplBase {
     private TextField zBoundTextField;
 
     @FXML
+    private Label formulaLabel;
+
+    @FXML
     private Slider timeSlider;
 
     @FXML
@@ -48,6 +51,9 @@ public class CalculatorController extends CalculatorGrpc.CalculatorImplBase {
 
     @FXML
     private Pane pane;
+
+    @FXML
+    private ComboBox<String> operations;
 
     private Map<Long, List<Coord3d>> allSeries;
 
@@ -72,8 +78,7 @@ public class CalculatorController extends CalculatorGrpc.CalculatorImplBase {
 
         chartScene.setVisible(true);
 
-        SurfaceRenderer surfaceRenderer = new SurfaceRenderer();
-        surfaceRenderer.renderSurface(chartScene, pane, points);
+        SurfaceRenderer.renderSurface(chartScene, pane, points);
     }
 
     private void addListeners() {
@@ -84,8 +89,11 @@ public class CalculatorController extends CalculatorGrpc.CalculatorImplBase {
         addTextFieldValidator(startYTextField);
         addTextFieldValidator(endYTextField);
 
-
         timeSlider.valueProperty().addListener((observable -> showChartByTime()));
+        zBoundTextField.textProperty().addListener((observable -> showChartByTime()));
+        operations.promptTextProperty().addListener((observable -> errorLabel.setVisible(false)));
+        operations.setOnShowing(event -> addOperations());
+        operations.valueProperty().addListener((observable) -> onOperationPick());
     }
 
     private void addTextFieldValidator(TextField textField) {
@@ -97,12 +105,10 @@ public class CalculatorController extends CalculatorGrpc.CalculatorImplBase {
         Long time = timeSlider.valueProperty().longValue();
         System.out.println(time);
         if (allSeries.get(time) != null) {
-            SurfaceRenderer su = new SurfaceRenderer();
-
             if (zBoundTextField.getText().isEmpty() || !isZTextFieldOk()) {
-                su.renderSurface(chartScene, pane, allSeries.get(time));
+                SurfaceRenderer.renderSurface(chartScene, pane, allSeries.get(time));
             } else {
-                su.renderZBoundedSurface(chartScene, pane, allSeries.get(time), Float.parseFloat(zBoundTextField.getText()));
+                SurfaceRenderer.renderZBoundedSurface(chartScene, pane, allSeries.get(time), Float.parseFloat(zBoundTextField.getText()));
             }
         }
     }
@@ -113,10 +119,9 @@ public class CalculatorController extends CalculatorGrpc.CalculatorImplBase {
 
         Thread thread = new Thread(() -> {
             try {
-                CalculatorGrpc.CalculatorBlockingStub stub = NetworkManager.buildStub();
+                CalculatorGrpc.CalculatorBlockingStub stub = NetworkManager.buildCalculatorStub();
 
                 CalculatorService.Request request = buildRequest();
-
 
                 Iterator<CalculatorService.ResponseArray> results = stub.calculate(request);
 
@@ -163,6 +168,21 @@ public class CalculatorController extends CalculatorGrpc.CalculatorImplBase {
         }
     }
 
+    private void onOperationPick() {
+        validateComboBox(operations);
+
+        if (operations.getValue() != null) {
+            getFormula(operations.getValue());
+        }
+    }
+
+    private void validateComboBox(ComboBox<String> comboBox) {
+        if (comboBox.getValue() != null && areRequestParamsOk()) {
+            errorLabel.setVisible(false);
+            startButton.setDisable(false);
+        }
+    }
+
     private void logResponse(CalculatorService.Response response) {
         System.out.printf("X - %d, Y - %d, T - %d, Result = %f\n",
                 response.getX(),
@@ -197,6 +217,21 @@ public class CalculatorController extends CalculatorGrpc.CalculatorImplBase {
         return areRequestParamsOk();
     }
 
+    private void addOperations() {
+        try {
+            operations.getItems().clear();
+
+            OperationsGrpc.OperationsBlockingStub stub = NetworkManager.buildOperationsStub();
+
+            var operationNames = stub.getOperationNames(CalculatorService.GetOperationsRequest.newBuilder().build());
+
+            operations.getItems().addAll(operationNames.getMethodList());
+        } catch (Exception exception) {
+            errorLabel.setText("Ошибка соединения с сервером");
+            errorLabel.setVisible(true);
+        }
+    }
+
     private boolean isZTextFieldOk() {
         zBoundTextField.setStyle(WHITE_COLOR);
         errorLabel.setVisible(false);
@@ -210,6 +245,21 @@ public class CalculatorController extends CalculatorGrpc.CalculatorImplBase {
             return false;
         }
         return true;
+    }
+
+    private void getFormula(String operationName) {
+        try {
+            formulaLabel.setText("");
+
+            FormulaGrpc.FormulaBlockingStub stub = NetworkManager.buildFormulaStub();
+
+            var formula = stub.getFormula(CalculatorService.GetFormulaRequest.newBuilder().setOperationName(operationName).build());
+
+            formulaLabel.setText(formula.getFormula());
+        } catch (Exception e) {
+            errorLabel.setText("Ошибка соединения с сервером");
+            errorLabel.setVisible(true);
+        }
     }
 
     private boolean areRequestParamsOk() {
@@ -239,6 +289,12 @@ public class CalculatorController extends CalculatorGrpc.CalculatorImplBase {
             return false;
         }
 
+        if (operations.getValue() == null) {
+            errorLabel.setText("Выберите операцию в выпадающем списке!");
+            errorLabel.setVisible(true);
+            return false;
+        }
+
         return true;
     }
 
@@ -259,6 +315,8 @@ public class CalculatorController extends CalculatorGrpc.CalculatorImplBase {
         long startY = Long.parseLong(startYTextField.getText());
         long endY = Long.parseLong(endYTextField.getText());
 
+        String operationName = operations.getValue();
+
         return CalculatorService.Request.newBuilder().
                 setStartT(startTime).
                 setEndT(endTime).
@@ -266,6 +324,7 @@ public class CalculatorController extends CalculatorGrpc.CalculatorImplBase {
                 setEndX(endX).
                 setStartY(startY).
                 setEndY(endY).
+                setMethodName(operationName).
                 build();
     }
 

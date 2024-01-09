@@ -4,6 +4,7 @@
 <?import javafx.scene.SubScene?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Slider?>
@@ -79,9 +80,15 @@
                         <TextField fx:id="endTimeTextField" prefHeight="25.0" prefWidth="190.0" />
                     </items>
                 </ToolBar>
+            <Text nodeOrientation="LEFT_TO_RIGHT" strokeType="OUTSIDE" strokeWidth="0.0" text="Выберите операцию :" wrappingWidth="206.798828125">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <ComboBox fx:id="operations" prefHeight="25.0" prefWidth="233.0" />
                 <ToolBar prefHeight="40.0" prefWidth="190.0">
                     <items>
-                        <Label alignment="CENTER" prefHeight="26.0" prefWidth="339.0" text="f(x, y, t) = cos(x + t) + t * sin(y + x)" textAlignment="CENTER">
+                        <Label fx:id="formulaLabel" alignment="CENTER" prefHeight="26.0" prefWidth="339.0" textAlignment="CENTER">
                             <font>
                                 <Font size="17.0" />
                             </font>

@@ -1,14 +1,15 @@
 syntax = "proto3";
 
-package  com.test.grpc;
+package com.test.grpc;
 
 message Request {
-  int64 startX = 1;
-  int64 endX = 2;
-  int64 startY = 3;
-  int64 endY = 4;
-  int64 startT = 5;
-  int64 endT = 6;
+  string methodName = 1;
+  int64 startX = 2;
+  int64 endX = 3;
+  int64 startY = 4;
+  int64 endY = 5;
+  int64 startT = 6;
+  int64 endT = 7;
 }
 
 message Response {
@@ -22,6 +23,29 @@ message ResponseArray{
   repeated Response responses = 1;
 }
 
+message GetOperationsRequest{
+}
+
+message GetOperationsResponse{
+  repeated string method = 1;
+}
+
+message GetFormulaRequest{
+  string operationName = 1;
+}
+
+message GetFormulaResponse{
+  string formula = 1;
+}
+
 service Calculator {
   rpc calculate(Request) returns (stream ResponseArray);
+}
+
+service Operations{
+  rpc getOperationNames(GetOperationsRequest) returns (GetOperationsResponse);
+}
+
+service Formula{
+  rpc getFormula(GetFormulaRequest) returns (GetFormulaResponse);
 }

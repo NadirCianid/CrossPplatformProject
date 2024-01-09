@@ -1,5 +1,16 @@
-C:\Users\Denis\Quasidisk D\Politech\Hlopin\RPC_Project\MainProject\CrossPlatformProject\CoolClient\target\generated-sources\protobuf\grpc-java\com\test\grpc\TestServiceGrpc.java
-C:\Users\Denis\Quasidisk D\Politech\Hlopin\RPC_Project\MainProject\CrossPlatformProject\CoolClient\target\generated-sources\protobuf\java\com\test\grpc\TestServiceOuterClass.java
-C:\Users\Denis\Quasidisk D\Politech\Hlopin\RPC_Project\MainProject\CrossPlatformProject\CoolClient\src\main\java\com\client\coolclient\HelloController.java
-C:\Users\Denis\Quasidisk D\Politech\Hlopin\RPC_Project\MainProject\CrossPlatformProject\CoolClient\src\main\java\com\client\coolclient\HelloApplication.java
-C:\Users\Denis\Quasidisk D\Politech\Hlopin\RPC_Project\MainProject\CrossPlatformProject\CoolClient\src\main\java\com\client\coolclient\Test.java
+D:\STUDY\unic\Hlopin\CrossPlatformProject\CoolClient\src\main\java\client\plot\controllers\mouse\JavaFXCameraMouseController.java
+D:\STUDY\unic\Hlopin\CrossPlatformProject\CoolClient\target\generated-sources\protobuf\grpc-java\com\test\grpc\FormulaGrpc.java
+D:\STUDY\unic\Hlopin\CrossPlatformProject\CoolClient\src\main\java\client\dto\Point.java
+D:\STUDY\unic\Hlopin\CrossPlatformProject\CoolClient\target\generated-sources\protobuf\grpc-java\com\test\grpc\OperationsGrpc.java
+D:\STUDY\unic\Hlopin\CrossPlatformProject\CoolClient\target\generated-sources\protobuf\java\com\test\grpc\CalculatorService.java
+D:\STUDY\unic\Hlopin\CrossPlatformProject\CoolClient\src\main\java\client\plot\SurfaceRenderer.java
+D:\STUDY\unic\Hlopin\CrossPlatformProject\CoolClient\src\main\java\client\network\NetworkManager.java
+D:\STUDY\unic\Hlopin\CrossPlatformProject\CoolClient\src\main\java\client\plot\controllers\mouse\JavaFXCameraThreadController.java
+D:\STUDY\unic\Hlopin\CrossPlatformProject\CoolClient\src\main\java\client\ClientApplication.java
+D:\STUDY\unic\Hlopin\CrossPlatformProject\CoolClient\src\main\java\client\plot\controllers\mouse\JavaFXMousePickingController.java
+D:\STUDY\unic\Hlopin\CrossPlatformProject\CoolClient\src\main\java\client\controllers\CalculatorController.java
+D:\STUDY\unic\Hlopin\CrossPlatformProject\CoolClient\src\main\java\client\plot\controllers\JavaFXChartController.java
+D:\STUDY\unic\Hlopin\CrossPlatformProject\CoolClient\src\main\java\client\plot\chart\JavaFXChartFactory.java
+D:\STUDY\unic\Hlopin\CrossPlatformProject\CoolClient\src\main\java\client\plot\chart\JavaFXRenderer3d.java
+D:\STUDY\unic\Hlopin\CrossPlatformProject\CoolClient\target\generated-sources\protobuf\grpc-java\com\test\grpc\CalculatorGrpc.java
+D:\STUDY\unic\Hlopin\CrossPlatformProject\CoolClient\src\main\java\client\plot\controllers\keyboard\JavaFXCameraKeyController.java

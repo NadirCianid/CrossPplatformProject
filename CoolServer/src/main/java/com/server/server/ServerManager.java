@@ -1,4 +1,4 @@
-package com.server.Server;
+package com.server.server;
 
 import io.grpc.Server;
 import lombok.AllArgsConstructor;
