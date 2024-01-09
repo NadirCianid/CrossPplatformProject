@@ -145,7 +145,7 @@ public class CalculatorController extends CalculatorGrpc.CalculatorImplBase {
 
                     long finalKey = key;
                     Platform.runLater(() -> allSeries.put(finalKey, points));
-
+                    Platform.runLater(this::showChartByTime);
                 }
 
             } catch (Exception e) {
