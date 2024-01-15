@@ -1,0 +1,6 @@
+/CoolClient/.mvn/
+/CoolClient/.idea/
+/CoolClient/target/
+/CoolServer/target/
+/CoolServer/.idea/
+/.idea
