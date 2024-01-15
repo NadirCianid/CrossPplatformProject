@@ -15,7 +15,6 @@ import java.util.List;
 @AllArgsConstructor
 public class CalculationService extends CalculatorGrpc.CalculatorImplBase {
 
-
     private OperationsManager operationsManager;
 
     @Override
@@ -26,7 +25,6 @@ public class CalculationService extends CalculatorGrpc.CalculatorImplBase {
 
             for (long x = request.getStartX(); compare(x, request.getEndX()); x += 1) {
                 for (long y = request.getStartY(); compare(y, request.getEndY()); y += 1) {
-
                     CalculatorService.Response response = buildResponse(request.getMethodName(), x, y, t);
 
                     responses.add(response);
@@ -51,13 +49,13 @@ public class CalculationService extends CalculatorGrpc.CalculatorImplBase {
 
         Operation operation = operationsManager.getOperationByName(operationName);
 
-        CalculatorService.Response result = CalculatorService.Response.
-                newBuilder().
-                setTime(t).
-                setX(x).
-                setY(y).
-                setResult(operation.calculate(x, y, t)).
-                build();
+        CalculatorService.Response result = CalculatorService.Response
+                .newBuilder()
+                .setTime(t)
+                .setX(x)
+                .setY(y)
+                .setResult(operation.calculate(x, y, t))
+                .build();
 
         logResponse(result.getResult());
 

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 @Component("yaroslav")
 public class YaroslavOperation implements Operation {
+
     @Override
     public String getOperationName() {
         return "Ярослав";

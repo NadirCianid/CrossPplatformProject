@@ -1,7 +1,7 @@
 package com.server.server;
 
 import io.grpc.Server;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -9,10 +9,10 @@ import javax.annotation.PreDestroy;
 import java.io.IOException;
 
 @Component
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class ServerManager {
 
-    private Server server;
+    private final Server server;
 
     @PostConstruct
     public void startServer() throws IOException, InterruptedException {

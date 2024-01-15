@@ -5,7 +5,6 @@ com\test\grpc\OperationsGrpc$OperationsStub.class
 com\test\grpc\FormulaGrpc$MethodHandlers.class
 com\test\grpc\OperationsGrpc.class
 client\plot\SurfaceRenderer.class
-client\dto\Point.class
 com\test\grpc\CalculatorService$GetFormulaRequest$1.class
 com\test\grpc\CalculatorService$GetFormulaResponse$1.class
 client\plot\chart\JavaFXRenderer3d.class

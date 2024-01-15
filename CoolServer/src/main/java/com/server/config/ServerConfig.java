@@ -23,11 +23,11 @@ public class ServerConfig {
 
     @Bean
     public Server server() {
-        return ServerBuilder.
-                forPort(PORT).
-                addService( calculatorService).
-                addService(getMethodsService).
-                addService(getFormulaService).
-                build();
+        return ServerBuilder
+                .forPort(PORT)
+                .addService(calculatorService)
+                .addService(getMethodsService)
+                .addService(getFormulaService)
+                .build();
     }
 }

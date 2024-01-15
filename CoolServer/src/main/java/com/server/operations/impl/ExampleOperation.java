@@ -8,7 +8,7 @@ public class ExampleOperation implements Operation {
 
     @Override
     public String getOperationName() {
-        return "Пример. (Олег и Вася)";
+        return "Пример. (Олег - главный и Вася - просто так чисто сбоку припёку)";
     }
 
     @Override
@@ -20,6 +20,4 @@ public class ExampleOperation implements Operation {
     public Double calculate(long x, long y, long t) {
         return Math.cos(x + t) + t * Math.sin(y + x);
     }
-
-
 }
