@@ -204,11 +204,20 @@ public class CalculatorController extends CalculatorGrpc.CalculatorImplBase {
             return false;
         }
 
+
         try {
             Double.parseDouble(textField.getText());
         } catch (NumberFormatException e) {
             textField.setStyle(RED_COLOR);
             errorLabel.setText("Некорректные данные!");
+            errorLabel.setVisible(true);
+
+            return false;
+        }
+        double value=Double.parseDouble(textField.getText());
+        if (value<0) {
+            textField.setStyle(RED_COLOR);
+            errorLabel.setText("Значение не можем быть отрицательным!");
             errorLabel.setVisible(true);
 
             return false;

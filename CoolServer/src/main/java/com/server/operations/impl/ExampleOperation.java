@@ -1,7 +1,10 @@
 package com.server.operations.impl;
 
 import com.server.operations.Operation;
+import com.test.grpc.CalculatorService;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Component("example")
 public class ExampleOperation implements Operation {
@@ -21,5 +24,13 @@ public class ExampleOperation implements Operation {
         return Math.cos(x + t) + t * Math.sin(y + x);
     }
 
+    @Override
+    public void initBorders(long startX, long endX, long startY, long endY,long startT,long endT) {
 
+    }
+
+    @Override
+    public List<CalculatorService.Response> magic(long t) {
+        return null;
+    }
 }
