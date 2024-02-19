@@ -10,7 +10,7 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public class NetworkManager {
 
-    private static final String TARGET = "localhost:8082";
+    private static final String TARGET = "localhost:8083";
 
     private final ManagedChannel channel = ManagedChannelBuilder.forTarget(TARGET).usePlaintext().build();
 

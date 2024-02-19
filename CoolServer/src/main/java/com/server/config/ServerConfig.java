@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 @AllArgsConstructor
 public class ServerConfig {
 
-    private static final int PORT = 8082;
+    private static final int PORT = 8083;
 
     private CalculationService calculatorService;
 
