@@ -39,16 +39,6 @@ public class CalculationService extends CalculatorGrpc.CalculatorImplBase {
 
 
             List<CalculatorService.Response> responses = operation.magic(t);
-
-           /* for (long x = request.getStartX(); compare(x, request.getEndX()); x += 1) {
-                for (long y = request.getStartY(); compare(y, request.getEndY()); y += 1) {
-
-                    CalculatorService.Response response = buildResponse(request.getMethodName(), x, y, t);
-
-                    responses.add(response);
-                }
-            }*/
-
             responseObserver.onNext(buildResponseArray(responses));
         }
 
@@ -62,33 +52,9 @@ public class CalculationService extends CalculatorGrpc.CalculatorImplBase {
                 build();
     }
 
-    private CalculatorService.Response buildResponse(String operationName, long x, long y, long t) {
-        logParams(x, y, t);
-
-        Operation operation = operationsManager.getOperationByName(operationName);
-
-        CalculatorService.Response result = CalculatorService.Response.
-                newBuilder().
-                setTime(t).
-                setX(x).
-                setY(y).
-                setResult(operation.calculate(x, y, t)).
-                build();
-
-        logResponse(result.getResult());
-
-        return result;
-    }
 
     private boolean compare(long first, long second) {
         return first <= second;
     }
 
-    private void logParams(long x, long y, long t) {
-        System.out.printf("X - %d, Y - %d, t - %d ", x, y, t);
-    }
-
-    private void logResponse(Double response) {
-        System.out.printf("Response - %f \n", response);
-    }
 }

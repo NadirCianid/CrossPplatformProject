@@ -78,7 +78,7 @@ public class AnnaTestOperation implements Operation {
             for(long j=0; j<n_y+1; j++){
                 CalculatorService.Response u_i_j= calculateTemperature(i,j);
                 currentRow.add(u_i_j);
-                if(t % 10 == 0) {
+                if(t == startT || t % 10 == 0 ) {
                     result.add(u_i_j);
                 }
 
@@ -100,12 +100,12 @@ public class AnnaTestOperation implements Operation {
                     2 * 1 *( alpha_shashlyk * (previousMatrix.get((int) i).get(1).getResult() - previousMatrix.get((int) i).get(0).getResult())/ (dy * dy) +
                             (startTemp - previousMatrix.get((int) i).get(0).getResult()) / h);
 
-        } else if(j >= n_y-1) {
+        } else if(j >= n_y) {
             T =  previousMatrix.get((int) i).get((int) endY - 1).getResult() +
                     2 * 1 *( alpha_shashlyk * (previousMatrix.get((int) i).get((int) endY - 2).getResult() - previousMatrix.get((int) i).get((int) endY - 1).getResult())/ (dy * dy) +
                             (startTemp - previousMatrix.get((int) i).get((int) endY - 1).getResult()) / h);
 
-        } else if (i >= n_x-1) {
+        } else if (i >= n_x) {
             T =  previousMatrix.get((int) endX - 1).get((int) j).getResult() +
                     2 * 1 *( alpha_shashlyk * (previousMatrix.get((int) endX - 2).get((int) j).getResult() - previousMatrix.get((int) endX - 1).get((int) j).getResult())/ (dx * dx) +
                             (startTemp - previousMatrix.get((int) endX - 1).get((int) j).getResult()) / h);
